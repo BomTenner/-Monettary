@@ -1,6 +1,6 @@
 class CreateAddresses < ActiveRecord::Migration[6.0]
   def change
-    create_table :addresses do |t|
+    create_table :addresses, primary_key: "address_sequence", id: false do |t|
       t.references :user, null: false, foreign_key: true
       t.references :asset, null: false, foreign_key: true
       t.float :balance
@@ -12,3 +12,5 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
     add_index :addresses, :address_sequence, unique: true
   end
 end
+
+
