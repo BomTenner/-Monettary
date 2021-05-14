@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :user_1_contacts, class_name: "Contact", foreign_key: 'user_1_id'
   has_many :user_2_contacts, class_name: "Contact", foreign_key: 'user_2_id'
+  has_many :addresses
 end
