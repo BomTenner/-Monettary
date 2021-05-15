@@ -1,0 +1,28 @@
+.card-action{
+  width: 200px;
+  height: 65px;
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #0A1C5B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 0px 2px rgb(10,10,10);
+
+  .logo {
+    position: absolute;
+    left: 20px;
+    top: 23px;
+    font-size: 20px;
+  }
+
+  h5 {
+    margin-left: 10px;
+    position: absolute;
+    top: 21px;
+    left: 60px;
+  }
+}
+
