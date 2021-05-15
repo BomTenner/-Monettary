@@ -1,6 +1,6 @@
 class TransactionsController < ApplicationController
 
-  def idnex
+  def index
     @assets = Asset.all
     @addresses = Address.all
     @transactions = Transaction.all
