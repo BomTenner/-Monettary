@@ -4,12 +4,12 @@
 
   <table class="transfers">
     <tr class="data">
-      <th>
+      <th class="search-bar">
         <%= form_tag transactions_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control search-bar",
-            placeholder: "Type in an asset"
+            class: "form-control",
+            placeholder: "Search"
           %>
         <% end %>
       </th>
@@ -22,7 +22,7 @@
     <tr class="data">
       <td class="asset-name"><%= address.asset.name %> (<%= address.asset.ticker %>)</td>
       <% balance = address.balance %>
-      <td><%= balance %> <%= address.asset.ticker %></td>
+      <td><%= balance %> <span class="ticker"><%= address.asset.ticker %></span></td>
       <% price = address.asset.price %>
       <td>$<%= '%.3f' % price %></td>
       <td>$<%= '%.3f' % (balance * price) %></td>

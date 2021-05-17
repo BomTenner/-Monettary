@@ -19,7 +19,11 @@
     left: 0;
     right: 0;
     width: 100%;
-    font-size: 14px;
+    text-align: left
+  }
+
+  .search-bar {
+    padding-left: 48px;
   }
 
   .data {
@@ -30,8 +34,15 @@
     font-size: 16px;
   }
 
+  .ticker {
+    color: #FFDE54;
+  }
+
+  td:not(:first-child) {
+    font-weight: 300;
+  }
+
   .asset-name {
-    text-align: left;
     padding-left: 48px;
     font-size: 16px;
   }
@@ -40,11 +51,12 @@
     padding-right: 24px;
   }
 
-  .search-bar {
+  .form-control {
     width: 160px;
     border-radius: 40px;
     height: 24px;
-    margin-left: 32px;
+    background-color: transparent;
+    color: white;
   }
 
   tr:nth-child(even) {
