@@ -1,0 +1,26 @@
+<div class="transfer-container">
+
+  <h3>Transfer Cryptocurrency</h2>
+
+  <table class="transfers">
+    <tr class="data">
+      <th></th>
+      <th>Balance</th>
+      <th>Price</th>
+      <th>Value</th>
+      <th class="fee">Est. Fee</th>
+    </tr>
+      <% @addresses.each do |address| %>
+    <tr class="data">
+      <td class="asset-name"><%= address.asset.name %> (<%= address.asset.ticker %>)</td>
+      <% balance = address.balance %>
+      <td><%= balance %> <%= address.asset.ticker %></td>
+      <% price = address.asset.price %>
+      <td>$<%= '%.2f' % price %></td>
+      <td>$<%= '%.2f' % (balance * price) %></td>
+      <td class="fee"></td>
+    </tr>
+      <% end %>
+  </table>
+
+</div>
