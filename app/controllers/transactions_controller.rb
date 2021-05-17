@@ -1,12 +1,15 @@
 class TransactionsController < ApplicationController
-
   def index
-    @assets = Asset.all
-    @addresses = Address.all
-    @transactions = Transaction.all
+    if params[:query].present?
+      sql_query = " \
+        assets.name ILIKE :query \
+      "
+      @addresses = Address.joins(:asset).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @addresses = Address.all
+    end
   end
 
   def exchange
-
   end
 end
