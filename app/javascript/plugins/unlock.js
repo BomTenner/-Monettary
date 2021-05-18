@@ -15,22 +15,20 @@ const animOnLogin = () => {
   
 }
 
-//const sideBar = document.getElementById('side-bar');
+const triggerAnimOnAuth = (form) => {
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      console.log("prevent NEW")
+      console.log(form)
+      event.preventDefault();
+      animOnLogin()
+      setTimeout(function(){ form.submit() },5000);
+      
+    })
+  }
+}
+
 
 const loginForm = document.getElementById("new_user")
 
-// loginForm.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   setTimeout( () => {
-//     document.getElementById("new_user").submit()
-//   }, 500)
-// })
-
-window.addEventListener('load', (event) => {
-
-  if (document.querySelector(".homepage-container")) {
-    animOnLogin()
-  }
-});
-
-//animOnLogin()
+triggerAnimOnAuth(loginForm)
