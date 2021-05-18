@@ -1,0 +1,71 @@
+.transfer-container {
+  margin-top: 40px;
+  width: 75%;
+  color: white;
+  text-align: center;
+  position: relative;
+  height: 520px;
+  overflow: scroll;
+
+  h3 {
+    font-weight: 200;
+  }
+
+  .transfers {
+    margin-top: 96px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: left
+  }
+
+  .search-bar {
+    padding-left: 48px;
+  }
+
+  .data {
+    line-height: 48px;
+  }
+
+  .data th {
+    font-size: 16px;
+  }
+
+  .ticker {
+    color: #FFDE54;
+  }
+
+  td:not(:first-child) {
+    font-weight: 300;
+  }
+
+  .asset-name {
+    padding-left: 48px;
+    font-size: 16px;
+  }
+
+  .fee {
+    padding-right: 24px;
+  }
+
+  .form-control {
+    width: 160px;
+    border-radius: 40px;
+    height: 24px;
+    background-color: transparent;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background: #5C6494;
+  }
+
+  tr:nth-child(odd) {
+    background: #0A1C5B;
+  }
+
+}
+
