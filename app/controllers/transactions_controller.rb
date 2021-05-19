@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
     if params[:query].present?
       sql_query = " \
         assets.name ILIKE :query \
+        OR assets.ticker ILIKE :query \
       "
       @addresses = Address.joins(:asset).where(sql_query, query: "%#{params[:query]}%")
     else
@@ -11,5 +12,9 @@ class TransactionsController < ApplicationController
   end
 
   def exchange
+  end
+
+  def transfer
+    @assets = Asset.all
   end
 end

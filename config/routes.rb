@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :transactions, only: [:index]
 
   get "/transactions/exchange", to: "transactions#exchange", as: :exchange
+  get "/transactions/transfer", to: "transactions#transfer", as: :transfer
 
   resources :assets, only: [:index, :show] do
     resources :addresses, only: [:new, :create]
