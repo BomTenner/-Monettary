@@ -11,10 +11,8 @@ class TransactionsController < ApplicationController
     end
   end
 
-  def exchange
+  def new
+    @asset = Asset.find(params[:asset_id])
   end
 
-  def transfer
-    @assets = Asset.all
-  end
 end

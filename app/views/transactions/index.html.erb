@@ -20,7 +20,7 @@
     </tr>
       <% @addresses.each do |address| %>
     <tr class="data">
-      <td class="asset-name"><%= address.asset.name %> (<%= address.asset.ticker %>)</td>
+      <td class="asset-name"><%= link_to address.asset.name, new_address_transaction_path(address) %> (<%= address.asset.ticker %>)</td>
       <% balance = address.balance %>
       <td><%= balance %> <span class="ticker"><%= address.asset.ticker %></span></td>
       <% price = address.asset.price %>
