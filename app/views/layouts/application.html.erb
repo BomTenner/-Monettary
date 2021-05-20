@@ -21,7 +21,9 @@
 
         <div class="body d-flex">
           <%= render 'shared/side_bar' %>
-          <%= yield %>
+          <div class="action-container" style="width:740px">
+            <%= yield %>
+          </div>
         </div>
 
       <% else %>
