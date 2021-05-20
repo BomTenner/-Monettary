@@ -1,0 +1,33 @@
+<div class="container-exchange">
+  <h1>Exchange Cryptocurrency</h1>
+  <%= simple_form_for(@exchange) do |f| %>
+  <div class="exchange-boxes" >
+    <div class="from-box">
+      <h4 class="direction">From</h4>
+      <div class="box">
+        <%= f.input :assets, collection: @assets %>
+        <%= f.input :sending_address, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
+
+        <div class="exchange-amount-box d-flex flex-column">
+          <label for="sending_amount" style="font-size: 10px; margin-left: 6px;">Amount:</label>
+          <input id="sending_amount" class="exchange-amount text-center" type="number" placeholder="-">
+        </div>
+      </div>
+    </div>
+    <div class="arrow">
+      <i class="fas fa-long-arrow-alt-right" style="font-size: 40px; margin: 0px 10px;"></i>
+    </div>
+    <div class="to-box">
+      <h4 class="direction">To</h4>
+      <div class="box">
+
+        <div class="exchange-amount-box d-flex flex-column">
+          <label for="receiving_amount" style="font-size: 10px; margin-left: 6px;">Amount:</label>
+          <input id="receiving_amount" class="exchange-amount text-center" type="number" placeholder="-" style="color: #F4790E;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to "Continue", new_exchange_path, class: "continue-button d-flex justify-content-center align-items-center" %>
+  <% end %>
+</div>
