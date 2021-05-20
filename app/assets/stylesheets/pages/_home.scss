@@ -1,5 +1,150 @@
 // Specific CSS for your home-page
+
 .anon {
   width: 80px;
   height: 80px;
+}
+
+body {
+  color: white;
+}
+h2 {
+  font-weight: 100;
+  font-size: 24px;
+  padding: 0px 0px 16px 0px;
+  
+}
+.curr-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 12px;
+  background-color: #0A1C5B; 
+  border: 0.2px solid rgba(255,255,255,0.15);
+
+  p {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Titillium Web', sans-serif;
+    color: rgba(255,255,255,0.8);
+    
+  }
+
+  img {
+    opacity: 0.8;
+  }
+}
+
+.homepage-container {
+  margin: 12px 24px;
+  width: 100%;
+  height: 500px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.belong-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #0A1C5B; 
+  box-shadow: 2px 2px 12px #040f37;
+
+  p {
+    margin: 0px;
+    padding: 0px;
+    color: rgba(255,255,255,0.8);
+  }
+}
+
+.belong-title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 8px 0px;
+  align-items: center;
+  h5 {
+    color: rgba(255,255,255,0.6);
+    padding: 0px;
+    margin: 0px 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
+.belong-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.belong-details {
+  flex: 2;
+  display: flex;
+  margin-top: 18px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.belong-value {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+
+}
+
+.belong-profit {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#prct {
+  color: rgb(150, 255, 150); 
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.belong-ico {
+  color: #ffd1a0;
+}
+
+.charts {
+  display: flex;
+  padding: 16px 0px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0A1C5B;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1b3594af;
+  border-radius: 2px;
+  opacity: 0.3;
+  display: none;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2441a9;
+  display: block;
 }

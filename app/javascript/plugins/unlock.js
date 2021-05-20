@@ -22,7 +22,7 @@ const triggerAnimOnAuth = (form) => {
       console.log(form)
       event.preventDefault();
       animOnLogin()
-      setTimeout(function(){ form.submit() },5000);
+      setTimeout(function(){ form.submit() },2800);
       
     })
   }

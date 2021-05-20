@@ -1,3 +1,51 @@
-<div class="homepage-container">
-<h2>bla</h2>
-</div>
+
+  <div class="homepage-container mt-5">
+  <% if @belongings[0] %>
+    <h2>Your current Balance</h2>
+    <div class="charts">
+      <%= pie_chart @charts_data, width: "200px", height: "250px", colors: ["#f7932a", "#627EEA"] %>
+      <%= line_chart [["01.02.21", @total - 20000],["01.03.21", @total - 25000],["01.04.21", @total - 12000],["Today", @total]], width: "280px", height: "200px" , prefix: "$",  stacked: true, colors: ["#f7932a", "#666"] %>
+    </div>
+
+
+      <div class="row mb-5">
+      <% @belongings.each do |belonging| %>
+        
+          <div class="col-6">
+            <div class="belong-status">
+              <div class="belong-title">
+                <%= image_tag(belonging[:logo], size: 42) %>
+                <div>
+                <h5><%= belonging[:name] %></h5>
+                </div>
+              </div>
+              <div class="belong-content">
+                <div class="belong-details">
+                  <p><i class="fas fa-coins belong-ico"></i>    <span class="belong-value">  <%= belonging[:balance] %></span> <span style="font-weight:700">  <%= belonging[:ticker] %></span></p>
+                  <p><i class="fas fa-money-bill-wave belong-ico"></i><span class="belong-value">  <%= number_to_currency(belonging[:value]) %></span></p>
+                </div>
+                <div class="belong-profit">
+                  <p><i class="fas fa-chart-line belong-ico"></i>  <span class="belong-value" id="prct"> + 24%</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+      <% end %>
+      <h2>Current Market Price</h2>
+      <div class="row">
+      <% @assets.each do |asset| %>
+
+        <div class="col-3">
+          <div class="curr-status">
+            <%= image_tag(asset.logo, size: 28) %>
+            <p><%= number_to_currency(asset.price, precision: 0) %></p>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
+
+  </div>
