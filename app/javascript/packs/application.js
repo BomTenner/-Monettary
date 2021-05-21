@@ -8,7 +8,11 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("plugins/unlock")
+
 require("plugins/transfer")
+
+require("plugins/homepage")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
