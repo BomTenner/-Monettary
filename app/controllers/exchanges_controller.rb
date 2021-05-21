@@ -13,6 +13,16 @@ class ExchangesController < ApplicationController
   end
 
   def create
+    @exchange = Transaction.new(exchange_params)
+    @exchange.category = "exchange"
+    @exchange.save
 
+    redirect_to new_exchange_path
+  end
+
+  private
+
+  def exchange_params
+    params.require(:transaction).permit(:sending_address_id, :receiving_address_id, :receiving_amount, :sending_amount)
   end
 end

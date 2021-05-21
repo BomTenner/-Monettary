@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_193039) do
+ActiveRecord::Schema.define(version: 2021_05_20_182914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_193039) do
     t.float "sending_amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "receiving_address"
-    t.string "sending_address"
+    t.string "receiving_address_id"
+    t.string "sending_address_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +73,6 @@ ActiveRecord::Schema.define(version: 2021_05_13_193039) do
   add_foreign_key "addresses", "users"
   add_foreign_key "contacts", "users", column: "user_1_id"
   add_foreign_key "contacts", "users", column: "user_2_id"
-  add_foreign_key "transactions", "addresses", column: "receiving_address", primary_key: "address_sequence"
-  add_foreign_key "transactions", "addresses", column: "sending_address", primary_key: "address_sequence"
+  add_foreign_key "transactions", "addresses", column: "receiving_address_id", primary_key: "address_sequence"
+  add_foreign_key "transactions", "addresses", column: "sending_address_id", primary_key: "address_sequence"
 end
