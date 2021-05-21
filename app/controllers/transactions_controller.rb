@@ -12,7 +12,7 @@ class TransactionsController < ApplicationController
   end
 
   def new
-    @asset = Asset.find(params[:asset_id])
+    @address = Address.find(params[:address_id])
   end
 
 end
