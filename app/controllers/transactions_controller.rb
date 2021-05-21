@@ -14,5 +14,4 @@ class TransactionsController < ApplicationController
   def new
     @address = Address.find(params[:address_id])
   end
-
 end

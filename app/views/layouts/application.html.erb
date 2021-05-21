@@ -12,35 +12,31 @@
   </head>
 
   <body>
-
     <div class="main-container">
-    <div class="content" id="app-content">
-      <% if current_user %>
-        <%= render 'shared/navbar' %>
-        <%= render 'shared/flashes' %>
+      <div class="content" id="app-content">
+        <% if current_user %>
+          <%= render 'shared/navbar' %>
+          <%= render 'shared/flashes' %>
 
-        <div class="body d-flex">
-          <%= render 'shared/side_bar' %>
-          <div class="action-container" style="width:740px">
+          <div class="body d-flex">
+            <%= render 'shared/side_bar' %>
+            <div class="action-container" style="width:740px">
+              <%= yield %>
+            </div>
+          </div>
+
+        <% else %>
+
+          <%= render 'shared/flashes' %>
+
+          <div class="body d-flex">
             <%= yield %>
           </div>
-        </div>
-
-      <% else %>
-
-        <%= render 'shared/flashes' %>
-
-        <div class="body d-flex">
-          <%= yield %>
-        </div>
-      <% end %>
-    </div>
-    <div class="slider-top">
-    </div>
-    <%= image_tag("safe.png", size: 300, class:"safe-pic hidden") %>
-    <div class="slider-bottom">
-    </div>
-
+        <% end %>
+      </div>
+      <div class="slider-top"></div>
+      <%= image_tag("safe.png", size: 300, class:"safe-pic hidden") %>
+      <div class="slider-bottom"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   </body>

@@ -14,7 +14,6 @@ require("plugins/transfer")
 require("plugins/homepage")
 
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -34,8 +33,15 @@ import "chartkick/chart.js"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initExchange } from '../components/exchange';
+import { initScanExchanges } from '../components/scanning_exchanges';
+import { initMoveIt } from '../components/scanning_exchanges';
+import { initTimer } from '../components/scanning_exchanges';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  initExchange();
+  initScanExchanges();
+  initMoveIt();
+  initTimer();
 });
