@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_05_20_182914) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addresses", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "asset_id", null: false
     t.float "balance"
