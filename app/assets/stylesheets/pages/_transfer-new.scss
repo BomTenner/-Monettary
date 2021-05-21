@@ -1,0 +1,63 @@
+.new-transfer-container {
+  margin-top: 40px;
+  width: 75%;
+  color: white;
+  text-align: center;
+  height: 520px;
+
+
+  h3 {
+    font-weight: 200;
+  }
+
+  .currency-transfer {
+    width: 480px;
+    height: 360px;
+    margin: 48px auto;
+    border: 1px solid white;
+    border-radius: 25px;
+  }
+
+  .currency-name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .currency-transfer-elements {
+    margin-top: 24px;
+    height: 320px;
+  }
+
+  .balance {
+    opacity: 0.7;
+  }
+
+  .send-receive {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .btn-transfer {
+    color: white;
+    font-weight: bold;
+    background-color: #5C6494;
+    width: 136px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .history {
+    opacity: 0.7;
+    width: 120px;
+    margin: 32px auto;
+    padding-bottom: 4px;
+    border-bottom: 1px solid white;
+  }
+
+}
+
+
+
+
+
+

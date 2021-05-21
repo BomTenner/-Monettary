@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "cleaning assets DB"
+Asset.destroy_all
+puts "Asset DB cleaned!"
+
 Asset.create!([{name: "Bitcoin", price: 50000, ticker: "BTC", description: "The first ever digital asset", logo: "bitcoin.png"}])
 
 Asset.create!([{name: "Ethereum", price: 4000, ticker: "ETH", description: "The first smart contract platform", logo: "ethereum.png"}])
