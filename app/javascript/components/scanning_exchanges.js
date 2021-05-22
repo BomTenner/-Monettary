@@ -9,13 +9,14 @@ const initScanExchanges = () => {
   const container = document.querySelector('.container-exchange');
   const button = document.querySelector('.continue-button');
   const scanning = document.querySelector('.container-scanning-exchanges');
-  button.addEventListener("click", (event) => {
+  if (button) { button.addEventListener("click", (event) => {
     event.preventDefault();
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
     window.setTimeout(() => { test(); }, 7000);
   });
+  }
 };
 
 let radius = 100; // adjust to move items in and out
