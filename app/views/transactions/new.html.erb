@@ -1,0 +1,20 @@
+
+<div class="new-transfer-container">
+
+  <h3>Transfer Cryptocurrency</h3>
+
+  <div class="currency-transfer">
+    <div class="currency-transfer-elements d-flex flex-column justify-content-between">
+      <div>
+        <div class="currency-name"> <%= @address.asset.name %> (<%= @address.asset.ticker %>) </div>
+        <p class="balance"><small>Available Balance: <%= @address.balance %> <%= @address.asset.ticker %></small></p>
+      </div>
+      <div class="send-receive d-flex justify-content-between">
+        <div class="btn btn-transfer">Send</div>
+        <div class="btn btn-transfer">Receive</div>
+      </div>
+      <p class="history"><small>View History</small></p>
+    </div>
+  </div>
+
+</div>

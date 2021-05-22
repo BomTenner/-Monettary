@@ -1,6 +1,5 @@
 .transfer-container {
   margin-top: 40px;
-  width: 75%;
   color: white;
   text-align: center;
   position: relative;
@@ -40,6 +39,10 @@
 
   td:not(:first-child) {
     font-weight: 300;
+  }
+
+  td:hover {
+    cursor: pointer;
   }
 
   .asset-name {

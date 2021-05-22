@@ -1,27 +1,35 @@
-<div class="side-bar d-flex flex-column align-items-center justify-content-around" style="height: 582px; width: 300px; background-color: #404877; border-radius: 0px 0px 0px 21px; box-shadow: 0px 0px 3px;">
+<div class="side-bar d-flex flex-column align-items-center justify-content-around sidebar-container" >
   <div class="user-info d-flex flex-column align-items-center">
-    <div class="avatar" style="width: 80px; height: 80px; border-radius: 50%; background-color: black; margin-bottom: 8px; box-shadow: 0px 0px 10px rgb(10,10,10);">
-      <%= image_tag "anonymous.png", alt: "alttext", class: "anon" %>
+    <div class="avatar-b" style="">
+      <%= image_tag "avatar.png", alt: "alttext", class: "anon" %>
     </div>
     <h5><%= current_user.name %></h5>
   </div>
 
   <div class="action-buttons" style="margin-top: -30px;">
+  <%= link_to root_path do %>
     <div class="card-action">
       <i class="fas fa-wallet logo"></i>
-      <h5>Assets</h5>
+      <h5>Dashboard</h5>
     </div>
+  <% end %>
+  <%= link_to transactions_path do %>
     <div class="card-action">
       <i class="fas fa-paper-plane logo"></i>
       <h5>Transfers</h5>
     </div>
+    <% end %>
+  <%= link_to new_exchange_path do %>
     <div class="card-action">
       <i class="fas fa-exchange-alt logo"></i>
       <h5>Exchange</h5>
     </div>
+  <% end %>
+  <%= link_to transactions_path do %>
     <div class="card-action">
       <i class="fas fa-chart-line logo"></i>
       <h5>Staking</h5>
     </div>
+    <% end %>
   </div>
 </div>
