@@ -9,14 +9,16 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-  background-color: #7880B5;
-  border-radius: 50%;
 }
 
 .nav-item {
   box-sizing: border-box;
   margin: 10px;
   color: white;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px;
+
 }
 
 .container {
@@ -26,7 +28,11 @@
   justify-content: space-between;
   border: 1px solid white;
   border-radius:5%;
-  width: 150px;
+  width: 180px;
   height: 40px;
 }
 
+    .logo {
+    font-size: 23px;
+    line-height: 1.5;
+  }
