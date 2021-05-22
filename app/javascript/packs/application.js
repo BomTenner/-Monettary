@@ -11,7 +11,7 @@ require("plugins/unlock")
 
 require("plugins/transfer")
 
-require("plugins/homepage")
+//require("plugins/homepage")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -30,6 +30,7 @@ require("plugins/homepage")
 // External imports
 import "bootstrap";
 import "chartkick/chart.js"
+import "chartkick"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -37,11 +38,13 @@ import { initExchange } from '../components/exchange';
 import { initScanExchanges } from '../components/scanning_exchanges';
 import { initMoveIt } from '../components/scanning_exchanges';
 import { initTimer } from '../components/scanning_exchanges';
+import { tabToggle } from '../components/homepage';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
+  //Call your functions here, e.g:
   initExchange();
   initScanExchanges();
   initMoveIt();
   initTimer();
+  tabToggle();
 });
