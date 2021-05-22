@@ -19,7 +19,9 @@
       <th class="fee">Est. Fee</th>
     </tr>
       <% @addresses.each do |address| %>
-    <tr class="data" data-link="<%= new_address_transaction_path(address) %>" >
+<!-- <tr class="data" data-link="<%= new_address_transaction_path(address) %>" >
+ --><tr class="data clickable-row" data-url="<%= new_address_transaction_url(address) %>" >
+
       <td class="asset-name"><%= address.asset.name %> (<%= address.asset.ticker %>)</td>
       <% balance = address.balance %>
       <td><%= balance %> <span class="ticker"><%= address.asset.ticker %></span></td>
@@ -30,5 +32,7 @@
     </tr>
       <% end %>
   </table>
+
+  <div class=""></div>
 
 </div>

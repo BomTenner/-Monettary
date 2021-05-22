@@ -15,7 +15,7 @@ const initScanExchanges = () => {
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
     window.setTimeout(() => { test(); }, 7000);
-    });
+   });
   }
 };
 
