@@ -11,7 +11,7 @@
   <div class="comment">
   <p>Current status of your wallet</p>
   </div>
-  
+      <div class="scroll-container">
       <div class="row mb-5">
       <% @belongings.each do |belonging| %>
         
@@ -35,6 +35,7 @@
             </div>
           </div>
       <% end %>
+    </div>
     </div>
   </div>
 
@@ -72,15 +73,48 @@
      <div class="comment">
       <p>Current Market Price for each currency</p>
     </div>
-      <div class="row">
-      <% @assets.each do |asset| %>
-          <div class="col-3">
-            <div class="curr-status">
-              <%= image_tag(asset.logo, size: 28) %>
-              <p><%= number_to_currency(asset.price, precision: 0) %></p>
-            </div>
+    <div class="row">
+     <div class="col-12">
+       <div class="curr-status-title">
+          <div class="curr-name-logo">
+            <p>Name</p>
           </div>
-      <% end %>
+          <div class="curr-price-cont">
+            <p>Price</p>
+          </div>
+          <div style="width:200px; text-align:left">
+            <p>Last 10 days</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-container">
+      <div class="row">
+        <% @assets.reverse_each do |asset| %>
+            <div class="col-12">
+              <div class="curr-status">
+                
+                <div class="curr-name-logo">
+                  <%= image_tag(asset.logo, size: 34) %>
+                  <h5><%= asset.name %></h5>
+                </div>
+                <div class="curr-price-cont">
+                <p><%= number_to_currency(asset.price, precision: 0) %></p>
+                </div>
+                  <%= line_chart @additional_infos[asset.name], 
+                    empty: "No data", 
+                    width: "200px", 
+                    height: "100px" , 
+                    prefix: "$",  
+                    points: false,
+                    stacked: true, 
+                    colors: ["#f7932a", "#666"] 
+                  %>
+                <p><i class="fas fa-chevron-right"></i></p>
+              </div>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 
