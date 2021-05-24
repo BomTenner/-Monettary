@@ -1,4 +1,4 @@
-<div class="container-exchange d-none">
+<div class="container-exchange">
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
   <%= simple_form_for(@exchange, url: exchanges_path) do |f| %>
   <div class="exchange-boxes" >
@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<div class="container-select-exchange">
+<div class="container-select-exchange d-none">
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
   <div class="scanning-box-fees">
     <h5 style="margin-top: 5px; margin-bottom: 17px;">Select the best offer:</h5>
@@ -66,7 +66,7 @@
         <td>0.06</td>
         <td>$28</td>
         <td></td>
-        <td><div class="select-button">Select</div></td>
+        <td><div class="select-button select-1">Select</div></td>
       </tr>
       <tr class="row-exchange 1inch-table">
         <td><%= image_tag "1inch.png", alt: "alttext", class: "circle-image-exchange" %></td>
@@ -74,7 +74,7 @@
         <td>0.063</td>
         <td>$31</td>
         <td></td>
-        <td><div class="select-button">Select</div></td>
+        <td><div class="select-button select-2">Select</div></td>
       </tr>
       <tr class="row-exchange kyber-table">
         <td><%= image_tag "kyber.png", alt: "alttext", class: "circle-image-exchange" %></td>
@@ -82,28 +82,36 @@
         <td>0.067</td>
         <td>$25</td>
         <td></td>
-        <td><div class="select-button">Select</div></td>
+        <td><div class="select-button select-3">Select</div></td>
       </tr>
     </table>
     <div class="execute-exchange-buttons d-flex justify-content-around" style="width: 100%; margin-top: 30px;">
       <%= link_to "Cancel", new_exchange_path, class: "exchange-cancel-button" %>
       <div class="disable-button">
-        <%= f.submit "Exchange", class: "execute-button" %>
+        <%= f.submit "Exchange", class: "execute-button pointer-none" %>
       </div>
     </div>
+  </div>
+</div>
+  <% end %>
 
-
-
-
-
-
-
-
-
-
+<div class="container-exchange-processing d-none">
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-processing">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Executing the exchange</h5>
+    <p><strong>1</strong> BTC for <strong>28.2</strong> ETH on</p>
+    <h5 style="margin-bottom: 40px;">Uniswap <%= image_tag "uniswap.png", alt: "alttext", class: "circle-image" %></h5>
+    <div class="snippet d-flex" data-title=".dot-pulse">
+      <div class="stage">
+        <div class="dot-pulse"></div>
+      </div>
+    </div>
   </div>
 </div>
 
+<div class="container-exchange-confirmation d-none">
+  <h1 class="exchange-header">REGENERON</h1>
+</div>
 
-  <% end %>
+
 

@@ -35,6 +35,7 @@ import { initScanExchanges } from '../components/scanning_exchanges';
 import { initMoveIt } from '../components/scanning_exchanges';
 import { initTimer } from '../components/scanning_exchanges';
 import { initTransfer } from '../components/transfer';
+import { initClickSelect, initExecuteExchange, initMoveNext } from '../components/select_exchange';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -43,4 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   initMoveIt();
   initTimer();
   initTransfer();
+  initClickSelect();
+  initExecuteExchange();
+  initMoveNext();
 });
