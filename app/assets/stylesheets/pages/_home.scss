@@ -14,12 +14,32 @@ h2 {
   padding: 0px 0px 16px 0px;
   
 }
+
+.curr-status-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  margin: 4px 24px 4px 0px;
+  border-bottom: 1px solid rgba(255,255,255,1);
+
+  p {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Titillium Web', sans-serif;
+    color: rgba(255,255,255,0.8);
+    text-align: left;
+    
+  }
+
+}
 .curr-status {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 18px;
-  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 4px 12px 4px 0px;
+  border-radius: 8px;
   background-color: #0A1C5B; 
   border: 0.2px solid rgba(255,255,255,0.15);
 
@@ -40,6 +60,11 @@ h2 {
   margin: 16px 24px;
   width: 100%;
   height: auto;
+}
+
+.scroll-container {
+  height: 380px;
+  overflow: scroll;
 }
 
 .belong-status {
@@ -138,6 +163,31 @@ canvas {
   margin-bottom: 24px;
 }
 
+.curr-name-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100px;
+  h5 {
+    margin: 0px 8px;
+    padding: 0px;
+    color: rgba(255,255,255,0.6);
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+
+}
+
+.curr-price-cont {
+  width: 120px;
+  p {
+    margin: 0px 8px;
+    padding: 0px;
+    text-align: left;
+  }
+}
+
 .page-link {
   flex: 1;
   width: 100%;
@@ -192,6 +242,10 @@ canvas {
 ::-webkit-scrollbar-thumb:hover {
   background: #2441a9;
   display: block;
+}
+
+::-webkit-scrollbar-corner {
+  background: #2441a9;
 }
 
 .avatar-b {
