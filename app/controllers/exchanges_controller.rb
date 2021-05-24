@@ -16,8 +16,6 @@ class ExchangesController < ApplicationController
     @exchange = Transaction.new(exchange_params)
     @exchange.category = "exchange"
     @exchange.save
-
-    redirect_to new_exchange_path
   end
 
   private
