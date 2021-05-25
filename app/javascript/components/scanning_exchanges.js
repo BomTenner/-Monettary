@@ -9,13 +9,16 @@ const initScanExchanges = () => {
   const container = document.querySelector('.container-exchange');
   const button = document.querySelector('.continue-button');
   const scanning = document.querySelector('.container-scanning-exchanges');
+  const sendAsset = document.querySelector('.sending-asset');
+  const receiveAsset = document.querySelector('.receiving-asset');
   if (button) {
     button.addEventListener("click", (event) => {
+    console.log(sendAsset.value);
     event.preventDefault();
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
-    window.setTimeout(() => { test(); }, 7000);
+    window.setTimeout(() => { test(); }, 2000);
   });
 }
 };
