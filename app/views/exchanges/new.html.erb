@@ -7,7 +7,6 @@
       <div class="box">
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "sending-asset"} %>
         <%= f.input :sending_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
-
         <div class="exchange-amount-box d-flex flex-column">
           <%= f.input :sending_amount, as: :integer, label: "Amount:" %>
         </div>
@@ -21,7 +20,6 @@
       <div class="box">
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "receiving-asset"} %>
         <%= f.input :receiving_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
-
         <div class="exchange-amount-box d-flex flex-column">
           <%= f.input :receiving_amount, as: :integer, label: "Amount:" %>
         </div>
@@ -43,6 +41,9 @@
       <div class="item"><%= image_tag "sushi.png", alt: "alttext", class: "circle-image" %></div>
       <div class="item"><%= image_tag "curve.png", alt: "alttext", class: "circle-image" %></div>
       <div class="item"><%= image_tag "pancake.png", alt: "alttext", class: "circle-image" %></div>
+    </div>
+    <div>
+        <p class="exchange-pair">ETH/BTC</p>
     </div>
   </div>
 </div>
@@ -89,11 +90,11 @@
       <%= link_to "Cancel", new_exchange_path, class: "exchange-cancel-button" %>
       <div class="disable-button">
         <%= f.submit "Exchange", class: "execute-button pointer-none" %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-  <% end %>
 
 <div class="container-exchange-processing d-none">
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
@@ -110,7 +111,23 @@
 </div>
 
 <div class="container-exchange-confirmation d-none">
-  <h1 class="exchange-header">REGENERON</h1>
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-conformation">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Exchange completed!</h5>
+    <div class="exchange-summary-box d-flex flex-column align-left" style="width: 80%; height: 190px;">
+      <h6><u>Review transaction:</u></h6>
+      <ul class="summary-exchange-info" style="list-style: none; padding-inline-start: 0px;">
+        <% time = @exchanges.last.created_at %>
+        <li>Date: <%= time.day %>.<%= time.month %>.<%= time.year %> <%= time.min %></li>
+        <li>Exchange:</li>
+        <li>Sold:</li>
+        <li>Received:</li>
+        <li>Exchange Rate:</li>
+        <li>Fee:</li>
+      </ul>
+    </div>
+    <%= link_to "Go back", new_exchange_path, class: "exchange-go-back-button" %>
+  </div>
 </div>
 
 

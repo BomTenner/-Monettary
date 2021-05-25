@@ -10,6 +10,7 @@ class ExchangesController < ApplicationController
     @assets = Asset.all
     @exchange = Transaction.new
     @addresses = current_user.addresses.select(:address_sequence, :balance, :asset_id).group_by { |address| address.asset.id }
+    @exchanges = Transaction.where(category: "exchange")
   end
 
   def create
