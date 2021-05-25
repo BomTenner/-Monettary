@@ -23,12 +23,16 @@
         <div class="currency-choice"> Send <%= @address.asset.name %> (<%= @address.asset.ticker %>) </div>
       </div>
       <div class="transfer-form">
-        <%= simple_form_for [@address, @transfer] do |f| %>
-          <%= f.input :sending_address_id, collection: ["Wallet 1", "Wallet 2", "Wallet 3", "Wallet 4"], label: "Select wallet:", label_html: { style: 'margin-bottom: 2px; font-size: 14px' } %>
-          <%= f.input :receiving_address_id, collection: @addresses, label: "Recipient's address:", label_html: { style: 'margin-bottom: 2px; font-size: 14px' } %>
-          <%= f.input :sending_amount, as: :integer, placeholder: "Amount (0.0)", label: "Current balance: #{@address.balance} #{@address.asset.ticker}", label_html: { style: 'margin-bottom: 8px; font-size: 14px' } %>
+        <%= simple_form_for [@address, @transaction] do |f| %>
+          <%= f.input :receiving_address_id, placeholder: "Enter the recipient address" %>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="current-balance"> Current balance: <%= @address.balance %> <%= @address.asset.ticker %> </div>
+            <div class="btn btn-outline-secondary select-balance">Select all</div>
+          </div>
+          <%= f.input :sending_amount, as: :integer, label: false, input_html: { max: 5 }, placeholder: "Amount (0.0)" %>
+          <%= f.input :sending_address_id, :as => :hidden, :input_html => { :value => @address.address_sequence } %>
+          <%= f.input :receiving_amount, :as => :hidden, :input_html => { :value => 0 } %>
         <% end %>
-        <div class="btn btn-outline-secondary select-balance">Select all</div>
       </div>
       <p class='ticker'> <%= @address.asset.ticker %> </p>
       <p class='amount-usd'>0.0</p>
@@ -44,9 +48,6 @@
     <div class="transaction-details">
       <div class="transfer-details">
         <p>Review transaction details:</p>
-        <p>Send from:</p>
-        <p>Recipient:</p>
-        <p>Amount:</p>
       </div>
       <div class="network-fee">
         <p>Choose network fee:</p>
@@ -75,15 +76,15 @@
         </div>
       </div>
       <div class="send-cancel-buttons">
-        <div class="btn btn-outline-secondary btn-cancel">Cancel</div>
-        <div class="btn btn-send">Send</div>
+        <%= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
+        <button type="submit" form="new_transaction" class="btn btn-send">Send</button>
       </div>
     </div>
   </div>
 
   <div class="transaction-completed d-none">
     <p>Transaction sent successfully</p>
-    <div class="btn btn-goback">Go back</div>
+    <%= link_to 'Go back', transactions_path, class: "btn btn-goback"  %>
   </div>
 
 </div>
