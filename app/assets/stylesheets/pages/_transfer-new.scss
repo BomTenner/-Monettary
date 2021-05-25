@@ -85,9 +85,6 @@
   }
 
   .select-balance {
-    position: absolute;
-    right: 60px;
-    top: 204px;
     font-size: 10px;
     color: rgba(255,255,255,0.7);
     width: 64px;
@@ -133,23 +130,28 @@
     padding-bottom: 14px;
   }
 
+  .current-balance {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
   .ticker {
     position: absolute;
-    top: 236px;
+    top: 185px;
     right: 60px;
     opacity: 0.7;
   }
 
   .amount-usd {
     position: absolute;
-    top: 264px;
+    top: 210px;
     left: 60px;
     opacity: 0.7;
   }
 
   .usd {
     position: absolute;
-    top: 264px;
+    top: 210px;
     right: 60px;
     opacity: 0.7;
   }
@@ -166,7 +168,7 @@
     color: white;
     background-color: #5C6494;
     width: 300px;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 4px;
     border-radius: 10px;
     border: 1px solid rgba(255,255,255,0.5);
