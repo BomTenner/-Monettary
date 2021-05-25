@@ -1,38 +1,29 @@
 .navbar-lewagon {
+  display: flex;
   justify-content: space-between;
   background: #404877;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
 
-.nav-item {
-  box-sizing: border-box;
-  margin: 10px;
-  color: white;
-  justify-content: space-between;
+.other-info {
   align-items: center;
-  border-bottom: 1px;
-
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
+.wallet-balance-sum {
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid white;
-  border-radius:5%;
-  width: 180px;
-  height: 40px;
 }
 
-    .logo {
-    font-size: 23px;
-    line-height: 1.5;
+.btn-secondary {
+  background-color: #404877;
+  border: none;
+  align-items: center;
+
+  &:hover {
+    background-color: #404877;
   }
+}
+
