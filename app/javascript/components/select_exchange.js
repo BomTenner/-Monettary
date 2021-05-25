@@ -32,12 +32,14 @@ const initExecuteExchange = () => {
   const button2 = document.querySelector('.select-2');
   const button3 = document.querySelector('.select-3');
   window.addEventListener("click", (event) => {
-   if (button1.classList.contains('color-change') || button2.classList.contains('color-change') || button3.classList.contains('color-change')) {
-     divExchangeButton.classList.remove('disable-button');
-     buttonExchange.classList.remove('pointer-none');
-   } else {
-     divExchangeButton.classList.add('disable-button');
-     buttonExchange.classList.add('pointer-none');
+    if (buttonExchange) {
+      if (button1.classList.contains('color-change') || button2.classList.contains('color-change') || button3.classList.contains('color-change')) {
+        divExchangeButton.classList.remove('disable-button');
+        buttonExchange.classList.remove('pointer-none');
+      } else {
+        divExchangeButton.classList.add('disable-button');
+        buttonExchange.classList.add('pointer-none');
+       }
     }
   });
 };
