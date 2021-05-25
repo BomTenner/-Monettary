@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
     @all_addresses.each do |address|
       @balance << address.balance * address.asset.price
     end
-    @final_balance = @balance.sum
+    @final_balance = @balance.sum.round(2)
   end
 end
