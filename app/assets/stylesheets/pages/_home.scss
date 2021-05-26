@@ -12,7 +12,7 @@ h2 {
   font-weight: 100;
   font-size: 24px;
   padding: 0px 0px 16px 0px;
-  
+
 }
 
 .curr-status-title {
@@ -29,7 +29,7 @@ h2 {
     font-family: 'Titillium Web', sans-serif;
     color: rgba(255,255,255,0.8);
     text-align: left;
-    
+
   }
 
 }
@@ -40,7 +40,7 @@ h2 {
   padding: 16px 24px;
   margin: 4px 12px 4px 0px;
   border-radius: 8px;
-  background-color: #0A1C5B; 
+  background-color: #0A1C5B;
   border: 0.2px solid rgba(255,255,255,0.15);
 
   p {
@@ -48,7 +48,7 @@ h2 {
     padding: 0px;
     font-family: 'Titillium Web', sans-serif;
     color: rgba(255,255,255,0.8);
-    
+
   }
 
   img {
@@ -65,6 +65,7 @@ h2 {
 .scroll-container {
   height: 380px;
   overflow: scroll;
+  width: 720px;
 }
 
 .belong-status {
@@ -75,7 +76,7 @@ h2 {
   margin: 16px 0px;
   padding: 16px;
   border-radius: 12px;
-  background-color: #0A1C5B; 
+  background-color: #0A1C5B;
   box-shadow: 2px 2px 12px #040f37;
 
   p {
@@ -130,7 +131,7 @@ h2 {
 }
 
 #prct {
-  color: rgb(150, 255, 150); 
+  color: rgb(150, 255, 150);
   font-size: 22px;
   font-weight: 700;
 }
@@ -182,7 +183,7 @@ canvas {
 .curr-price-cont {
   width: 120px;
   p {
-    margin: 0px 8px;
+    margin: 0px 48px;
     padding: 0px;
     text-align: left;
   }
@@ -208,7 +209,7 @@ canvas {
       outline: none;
       box-shadow: none;
   }
-  
+
 }
 
 .comment {
@@ -249,11 +250,11 @@ canvas {
 }
 
 .avatar-b {
-  width: 80px; 
-  height: 80px; 
-  border-radius: 50%; 
-  background-color: #253a87; 
-  margin-bottom: 16px; 
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #253a87;
+  margin-bottom: 16px;
   box-shadow: 0px 0px 10px #12235e;
 }
 
@@ -262,5 +263,5 @@ canvas {
     font-weight: 100;
     color: rgba(255,255,255,0.6);
   }
-  
+
 }
