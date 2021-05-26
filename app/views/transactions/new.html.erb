@@ -26,7 +26,7 @@
         <%= simple_form_for [@address, @transaction] do |f| %>
           <%= f.input :receiving_address_id, placeholder: "Enter the recipient address" %>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="current-balance"> Current balance: <%= @address.balance %> <%= @address.asset.ticker %> </div>
+            <div class="current-balance" id="balance-value" data-value="<%= @address.balance %>" data-ticker="<%= @address.asset.ticker %>"> Current balance: <%= @address.balance %> <%= @address.asset.ticker %> </div>
             <div class="btn btn-outline-secondary select-balance">Select all</div>
           </div>
           <%= f.input :sending_amount, as: :integer, label: false, input_html: { max: 5 }, placeholder: "Amount (0.0)" %>
@@ -37,7 +37,9 @@
       <p class='ticker'> <%= @address.asset.ticker %> </p>
       <p class='amount-usd'>0.0</p>
       <p class='usd'>USD</p>
-      <div class="btn btn-next next-button">Next</div>
+        <div class="not-valid-fb not-valid">
+        </div>
+      <div class="btn btn-next next-button disabled-link">Next</div>
     </div>
   </div>
 

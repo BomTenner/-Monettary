@@ -1,3 +1,17 @@
+.not-valid {
+  color: red !important;
+  p {
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+.disabled-link {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .new-transfer-container {
   margin-top: 40px;
   color: white;
