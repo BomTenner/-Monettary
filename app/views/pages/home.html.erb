@@ -14,7 +14,7 @@
       <div class="scroll-container">
       <div class="row mb-5">
       <% @belongings.each do |belonging| %>
-        
+
           <div class="col-6">
             <div class="belong-status">
               <div class="belong-title">
@@ -42,11 +42,11 @@
   <div class="charts d-none">
     <div class="one-chart">
       <h5>Balance share per currency</h5>
-      <%= pie_chart @charts_data, 
-        width: "300px", 
-        height: "250px", 
-        colors: ["#f7932a", "#627EEA","#DBDEE0","#2A5ADA"], 
-        legend: "bottom", 
+      <%= pie_chart @charts_data,
+        width: "300px",
+        height: "250px",
+        colors: ["#f7932a", "#627EEA","#DBDEE0","#2A5ADA"],
+        legend: "bottom",
         empty: "No data",
         labels: {
             font: {
@@ -57,13 +57,13 @@
     </div>
     <div class="one-chart">
       <h5>Lifetime Balance evolution</h5>
-      <%= line_chart [["01.02.21", @total - 20000],["01.03.21", @total - 25000],["01.04.21", @total - 12000],["Today", @total]], 
-        empty: "No data", 
-        width: "280px", 
-        height: "200px" , 
-        prefix: "$",  
-        stacked: true, 
-        colors: ["#f7932a", "#666"] 
+      <%= line_chart [["01.02.21", @total - 20000],["01.03.21", @total - 25000],["01.04.21", @total - 12000],["Today", @total]],
+        empty: "No data",
+        width: "280px",
+        height: "200px" ,
+        prefix: "$",
+        stacked: true,
+        colors: ["#f7932a", "#666"]
       %>
     </div>
   </div>
@@ -79,7 +79,7 @@
           <div class="curr-name-logo">
             <p>Name</p>
           </div>
-          <div class="curr-price-cont">
+          <div style="width:130px; text-align:left">
             <p>Price</p>
           </div>
           <div style="width:200px; text-align:left">
@@ -93,7 +93,7 @@
         <% @assets.reverse_each do |asset| %>
             <div class="col-12">
               <div class="curr-status">
-                
+
                 <div class="curr-name-logo">
                   <%= image_tag(asset.logo, size: 34) %>
                   <h5><%= asset.name %></h5>
@@ -101,14 +101,14 @@
                 <div class="curr-price-cont">
                 <p><%= number_to_currency(asset.price, precision: 0) %></p>
                 </div>
-                  <%= line_chart @additional_infos[asset.name], 
-                    empty: "No data", 
-                    width: "200px", 
-                    height: "100px" , 
-                    prefix: "$",  
+                  <%= line_chart @additional_infos[asset.name],
+                    empty: "No data",
+                    width: "200px",
+                    height: "100px" ,
+                    prefix: "$",
                     points: false,
-                    stacked: true, 
-                    colors: ["#f7932a", "#666"] 
+                    stacked: true,
+                    colors: ["#f7932a", "#666"]
                   %>
                 <p><i class="fas fa-chevron-right"></i></p>
               </div>
