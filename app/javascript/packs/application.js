@@ -30,7 +30,7 @@ import "chartkick"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initExchange } from '../components/exchange';
+import { initExchange, initAmountExchange } from '../components/exchange';
 import { initScanExchanges } from '../components/scanning_exchanges';
 import { initMoveIt } from '../components/scanning_exchanges';
 import { initTimer } from '../components/scanning_exchanges';
@@ -46,6 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initScanExchanges();
   initMoveIt();
   initTimer();
+  initAmountExchange();
 
   tabToggle();
 
