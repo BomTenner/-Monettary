@@ -7,8 +7,8 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @additional_infos = {}
-    update_assets(@additional_infos)
+    session[:additional_infos] ||= {}
+    update_assets if session[:additional_infos] == {}
     @assets = Asset.all
     @belongings = []
     @total = 0
@@ -36,12 +36,12 @@ class PagesController < ApplicationController
     end
   end
 
-  def update_assets(additional_infos)
+  def update_assets
     assets = Asset.all
     last_updated = Asset.last.updated_at
     now = Time.now
     diff = now - last_updated
-      if (diff > 100 )
+      if (diff > 10 )
       assets_names = assets.map { |asset| asset.name.downcase}
       assets_names.each do |id|
         url = "https://api.coingecko.com/api/v3/coins/#{id}"
@@ -58,12 +58,13 @@ class PagesController < ApplicationController
         history["prices"].each do |price|
           point = [
             (tod - iterator).strftime("%b %d,%Y"),
-            price[1] = price[1]
+            price[1] = price[1].round(2)
           ]
           hist_with_dates << point
           iterator -= 1
         end
-        additional_infos[asset.name] = hist_with_dates
+        session[:additional_infos][asset.name] = hist_with_dates
+        p session[:additional_infos]
       end
     end
   end

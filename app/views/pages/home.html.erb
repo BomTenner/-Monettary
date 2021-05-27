@@ -101,7 +101,7 @@
                 <div class="curr-price-cont">
                 <p><%= number_to_currency(asset.price, precision: 0) %></p>
                 </div>
-                  <%= line_chart @additional_infos[asset.name],
+                  <%= line_chart session[:additional_infos][asset.name],
                     empty: "No data",
                     width: "200px",
                     height: "100px" ,
