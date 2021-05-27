@@ -42,7 +42,7 @@ const initExchange = () => {
   }
 };
 
-const dummy = () => {
+const calculateAmount = () => {
   const sendAmount = document.querySelector('#transaction_sending_amount');
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
   receiveAmount.value = sendAmount.value * 14.1;
@@ -53,10 +53,56 @@ const initAmountExchange = () => {
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
   if (sendAmount) {
     sendAmount.addEventListener("keyup", (event) => {
-      window.setTimeout(() => { dummy(); }, 2000);
+      window.setTimeout(() => { calculateAmount(); }, 2000);
     });
   }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 export { initExchange, initAmountExchange }
