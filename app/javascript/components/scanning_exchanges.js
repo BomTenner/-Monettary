@@ -11,9 +11,12 @@ const initScanExchanges = () => {
   const scanning = document.querySelector('.container-scanning-exchanges');
   const sendAsset = document.querySelector('.sending-asset');
   const receiveAsset = document.querySelector('.receiving-asset');
+  const assetHash = document.querySelector('.asset-hash');
   if (button) {
     button.addEventListener("click", (event) => {
     console.log(sendAsset.value);
+    const assets = JSON.parse(assetHash.innerHTML);
+    console.log(assets[sendAsset.value].ticker);
     event.preventDefault();
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
