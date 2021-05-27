@@ -13,7 +13,7 @@ const initExchange = () => {
       if (selectedAddresses) {
         selectedAddresses.forEach(address => {
           sendAddress.innerHTML += `
-            <option value="${address.address_sequence}"> Balance: 5</option>
+            <option value="${address.address_sequence}"> Balance: ${address.balance}</option>
           `
         })
       } else {
@@ -31,7 +31,7 @@ const initExchange = () => {
       if (selectedAddresses) {
         selectedAddresses.forEach(address => {
           receiveAddress.innerHTML += `
-            <option value="${address.address_sequence}"> Balance: 5</option>
+            <option value="${address.address_sequence}"> Balance: ${address.balance}</option>
           `
         })
       }
@@ -42,4 +42,21 @@ const initExchange = () => {
   }
 };
 
-export { initExchange }
+const dummy = () => {
+  const sendAmount = document.querySelector('#transaction_sending_amount');
+  const receiveAmount = document.querySelector('#transaction_receiving_amount');
+  receiveAmount.value = sendAmount.value * 16.4;
+}
+
+const initAmountExchange = () => {
+  const sendAmount = document.querySelector('#transaction_sending_amount');
+  const receiveAmount = document.querySelector('#transaction_receiving_amount');
+  if (sendAmount) {
+    sendAmount.addEventListener("keyup", (event) => {
+      window.setTimeout(() => { dummy(); }, 2000);
+    });
+  }
+};
+
+
+export { initExchange, initAmountExchange }

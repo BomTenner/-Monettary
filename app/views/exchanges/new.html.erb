@@ -8,7 +8,7 @@
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "sending-asset"} %>
         <%= f.input :sending_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
         <div class="exchange-amount-box d-flex flex-column">
-          <%= f.input :sending_amount, as: :integer, label: "Amount:" %>
+          <%= f.input :sending_amount, as: :integer, label: "Amount:", placeholder: "-"%>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "receiving-asset"} %>
         <%= f.input :receiving_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
         <div class="exchange-amount-box d-flex flex-column">
-          <%= f.input :receiving_amount, as: :integer, label: "Amount:" %>
+          <%= f.input :receiving_amount, as: :integer, label: "Amount: (approximately)", placeholder: "-" %>
         </div>
       </div>
     </div>
