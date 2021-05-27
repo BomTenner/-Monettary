@@ -45,7 +45,7 @@ const initExchange = () => {
 const dummy = () => {
   const sendAmount = document.querySelector('#transaction_sending_amount');
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
-  receiveAmount.value = sendAmount.value * 16.4;
+  receiveAmount.value = sendAmount.value * 14.1;
 }
 
 const initAmountExchange = () => {

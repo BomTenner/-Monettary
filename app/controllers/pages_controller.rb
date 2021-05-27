@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @total = 0
     @charts_data = []
 
-    @user.addresses.each do |address| 
+    @user.addresses.each do |address|
       crypto = {
         address: address,
         name: address.asset.name,
@@ -55,7 +55,7 @@ class PagesController < ApplicationController
         iterator = 10
         tod = Date.today
         hist_with_dates = []
-        history["prices"].each do |price| 
+        history["prices"].each do |price|
           point = [
             (tod - iterator).strftime("%b %d,%Y"),
             price[1] = price[1]
@@ -68,5 +68,5 @@ class PagesController < ApplicationController
     end
   end
 
-  
+
 end
