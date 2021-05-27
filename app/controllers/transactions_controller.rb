@@ -5,9 +5,10 @@ class TransactionsController < ApplicationController
         assets.name ILIKE :query \
         OR assets.ticker ILIKE :query \
       "
-      @addresses = Address.joins(:asset).where(sql_query, query: "%#{params[:query]}%")
+      query_addresses = Address.joins(:asset).where(sql_query, query: "%#{params[:query]}%")
+      @addresses = query_addresses.select{ |add| add.user == current_user}
     else
-      @addresses = Address.all
+      @addresses = Address.all.select{ |add| add.user == current_user}
     end
   end
 
@@ -21,7 +22,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     sending_amount = params[:transaction][:sending_amount].to_f
-    receiving_amount = params[:transaction][:receiving_amount].to_f
+    receiving_amount = 0
 
     receiving_address = params[:transaction][:receiving_address_id]
     sending_address = Address.find_by(address_sequence: params[:transaction][:sending_address_id])
