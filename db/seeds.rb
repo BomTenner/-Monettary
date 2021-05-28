@@ -20,16 +20,31 @@ all_coins.each do |id|
   Asset.create!([{name: coin["name"], price: coin["market_data"]["current_price"]["eur"], ticker: coin["symbol"], description: coin["description"]["en"], logo: coin["image"]["large"]}])
 end
 
-# Asset.create!([{name: "Bitcoin", price: 50000, ticker: "BTC", description: "The first ever digital asset", logo: "bitcoin.png"}])
-
-# Asset.create!([{name: "Ethereum", price: 4000, ticker: "ETH", description: "The first smart contract platform", logo: "ethereum.png"}])
-
-# Asset.create!([{name: "Chainlink", price: 40, ticker: "LINK", description: "The best oracle solution for interoparability", logo: "chainlink.png"}])
-
-# Asset.create!([{name: "Cardano", price: 2, ticker: "ADA", description: "Scamcoin", logo: "cardano.png"}])
 
 puts "Finished seeding assets"
 
+puts "Cleaning AssetValue Databse"
+AssetValue.destroy_all
+
+puts "Finished cleaning"
+
+all_assets = Asset.all
+tod = Date.today
+
+all_assets.each do |asset|
+  id = asset.name.downcase
+  hist_url = "https://api.coingecko.com/api/v3/coins/#{id}/market_chart?vs_currency=eur&days=10&interval=daily"
+  history_serialized = URI.open(hist_url).read
+  history = JSON.parse(history_serialized)
+  iterator = 10
+  history["prices"].each do |price|
+    new_value = AssetValue.create!(asset: asset, date: (tod - iterator).strftime("%b %d,%Y"), value: price[1].round(2))
+    iterator -= 1
+  end
+  puts "Asset Values added!"
+end
+
+puts "Finished seeding asset values"
 
 
 

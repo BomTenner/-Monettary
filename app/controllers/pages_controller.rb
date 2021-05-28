@@ -41,7 +41,7 @@ class PagesController < ApplicationController
     last_updated = Asset.last.updated_at
     now = Time.now
     diff = now - last_updated
-      if (diff > 10 )
+      if (diff > 100 )
       assets_names = assets.map { |asset| asset.name.downcase}
       assets_names.each do |id|
         url = "https://api.coingecko.com/api/v3/coins/#{id}"
