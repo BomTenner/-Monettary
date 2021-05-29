@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  position: absolute;
 }
 
 .circle-image {
@@ -29,6 +29,12 @@
 #ethereum-logo {
   margin-top: 100px;
   margin-left: 150px;
+}
+
+.exchange-pair {
+  position: absolute;
+  top: 51%;
+  left: 42%;
 }
 
 

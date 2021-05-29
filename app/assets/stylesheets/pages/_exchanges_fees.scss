@@ -9,3 +9,89 @@
   margin-top: -10px;
   position: relative;
 }
+
+.exchanges-table {
+  width: 432px;
+}
+
+.row-exchange {
+  margin: 5px 0px;
+  border-bottom: 1px solid white;
+  font-size: 14px;
+}
+
+.scanning-box-fees {
+  width: 70%;
+  height: 350px;
+  border: 1px solid;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 30px;
+}
+
+.select-button {
+  border: 1px solid white;
+  border-radius: 13px;
+  padding: 2px 1px;
+  color: white;
+  font-size: 10px;
+  margin-right: 12px;
+
+  &:hover {
+    color: white;
+    background-color: rgba(210,210,210, 0.2);
+    cursor: pointer;
+  }
+}
+
+.color-change {
+  background-color: rgba(210,210,210, 0.2)!important;
+}
+
+.circle-image-exchange {
+  width: 40px;
+  height: 40px;
+  margin: 6px 8px 8px 8px;
+}
+
+.column-names {
+  margin-bottom: 10px;
+}
+
+.exchange-cancel-button {
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  padding: 4px 18px;
+  border-radius: 4px;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(210,210,210, 0.2);
+  }
+}
+
+.disable-button {
+  cursor: not-allowed!important;
+}
+
+.execute-button {
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  padding: 4px 18px;
+  border-radius: 4px;
+  background-color: #0A1C5B;
+}
+
+.pointer-none {
+  pointer-events: none;
+  background-color: rgba(64, 72, 119, 0.7);
+}
+
+

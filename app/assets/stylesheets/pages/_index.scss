@@ -1,8 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "exchange";
-@import "scanning_exchanges";
-@import "_exchanges_fees";
+@import "exchanges_scanning";
+@import "exchanges_fees";
+@import "exchange_processing";
+@import "exchange_confirmation";
+
 
 @import "login";
 @import "slider";

@@ -7,9 +7,8 @@
       <div class="box">
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "sending-asset"} %>
         <%= f.input :sending_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
-
         <div class="exchange-amount-box d-flex flex-column">
-          <%= f.input :sending_amount, as: :integer, label: "Amount:" %>
+          <%= f.input :sending_amount, as: :integer, label: "Amount:", placeholder: "-"%>
         </div>
       </div>
     </div>
@@ -21,14 +20,14 @@
       <div class="box">
         <%= f.input :assets, collection: @assets, label: "Choose Asset", input_html: { class: "receiving-asset"} %>
         <%= f.input :receiving_address_id, collection: [], input_html: {data: { addresses: @addresses.to_json} }, label: "Select address:" %>
-
         <div class="exchange-amount-box d-flex flex-column">
-          <%= f.input :receiving_amount, as: :integer, label: "Amount:" %>
+          <%= f.input :receiving_amount, as: :integer, label: "Amount: (approximately)", placeholder: "-" %>
         </div>
       </div>
     </div>
   </div>
-  <%= link_to "Continue", new_exchange_path, class: "continue-button d-flex justify-content-center align-items-center" %>
+  <div class="continue-button d-flex justify-content-center align-items-center">Continue</div>
+  <p class="asset-hash d-none"><%= @asset_hash.to_json %></p>
 </div>
 
 <div class="container-scanning-exchanges d-none">
@@ -44,16 +43,96 @@
       <div class="item"><%= image_tag "curve.png", alt: "alttext", class: "circle-image" %></div>
       <div class="item"><%= image_tag "pancake.png", alt: "alttext", class: "circle-image" %></div>
     </div>
+    <div>
+        <p class="exchange-pair">ETH/BTC</p>
+    </div>
   </div>
 </div>
 
 <div class="container-select-exchange d-none">
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
-  <div class="scanning-box">
-    <h5 style="margin-top: 5px;">Select the best offer:</h5>
+  <div class="scanning-box-fees">
+    <h5 style="margin-top: 5px; margin-bottom: 17px;">Select the best offer:</h5>
+    <table class="exchanges-table" style="text-align: center; margin-top: 10px;">
+      <tr class="row-exchange column-names">
+        <th></th>
+        <th>Exchange</th>
+        <th>ETH/BTC</th>
+        <th>Fee</th>
+        <th>Receive</th>
+        <th></th>
+      </tr>
+      <tr class="row-exchange uniswap-table">
+        <td><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td>Uniswap</td>
+        <td>0.07</td>
+        <td>$28</td>
+        <td>14.28 ETH</td>
+        <td><div class="select-button select-1">Select</div></td>
+      </tr>
+      <tr class="row-exchange 1inch-table">
+        <td><%= image_tag "1inch.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td>1inch</td>
+        <td>0.072 </td>
+        <td>$31</td>
+        <td>13.89 ETH</td>
+        <td><div class="select-button select-2">Select</div></td>
+      </tr>
+      <tr class="row-exchange kyber-table">
+        <td><%= image_tag "kyber.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td>Kyber</td>
+        <td>0.071</td>
+        <td>$25</td>
+        <td>14.08 ETH</td>
+        <td><div class="select-button select-3">Select</div></td>
+      </tr>
+    </table>
+    <div class="execute-exchange-buttons d-flex justify-content-around" style="width: 100%; margin-top: 30px;">
+      <%= link_to "Cancel", new_exchange_path, class: "exchange-cancel-button" %>
+      <div class="disable-button">
+        <%= f.submit "Exchange", class: "execute-button pointer-none" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-exchange-processing d-none">
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-processing">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Executing the exchange</h5>
+    <p><strong>1</strong> BTC for <strong>14.28</strong> ETH on</p>
+    <h5 style="margin-bottom: 40px;">Uniswap <%= image_tag "uniswap.png", alt: "alttext", class: "circle-image" %></h5>
+    <div class="snippet d-flex" data-title=".dot-pulse">
+      <div class="stage">
+        <div class="dot-pulse"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-exchange-confirmation d-none">
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-conformation">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Exchange completed!</h5>
+    <div class="exchange-summary-box d-flex flex-column align-left" style="width: 80%; height: 190px;">
+      <h6><u>Review transaction:</u></h6>
+      <ul class="summary-exchange-info" style="list-style: none; padding-inline-start: 0px;">
+        <% time = Time.now %>
+        <li>Date: <%= time.hour %>:<%= time.min %> - <%= time.day %>.<%= time.month %>.<%= time.year %> </li>
+        <li>Exchange: Bitcoin for Ethereum</li>
+        <li>Sold: 1 BTC</li>
+        <li>Received: 14.28 ETH</li>
+        <li>Exchange Rate: 0.071 ETH/BTC</li>
+        <li>Fee: $28</li>
+      </ul>
+    </div>
+    <div class="success-animation" style="position: absolute; top: -45px; right: 23px;">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+    </div>
+    <%= link_to "Go back", new_exchange_path, class: "exchange-go-back-button" %>
   </div>
 </div>
 
 
-  <% end %>
 
