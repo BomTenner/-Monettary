@@ -44,7 +44,7 @@
       <div class="item"><%= image_tag "pancake.png", alt: "alttext", class: "circle-image" %></div>
     </div>
     <div>
-        <p class="exchange-pair">ETH/BTC</p>
+        <p class="exchange-pair"></p>
     </div>
   </div>
 </div>
@@ -53,38 +53,39 @@
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
   <div class="scanning-box-fees">
     <h5 style="margin-top: 5px; margin-bottom: 17px;">Select the best offer:</h5>
+    <% random_fee = (25..35).to_a  %>
     <table class="exchanges-table" style="text-align: center; margin-top: 10px;">
       <tr class="row-exchange column-names">
         <th></th>
         <th>Exchange</th>
-        <th>ETH/BTC</th>
+        <th class="exchange-pair-header">ETH/BTC</th>
         <th>Fee</th>
         <th>Receive</th>
         <th></th>
       </tr>
       <tr class="row-exchange uniswap-table">
         <td><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image-exchange" %></td>
-        <td>Uniswap</td>
-        <td>0.07</td>
-        <td>$28</td>
-        <td>14.28 ETH</td>
-        <td><div class="select-button select-1">Select</div></td>
+        <td class="uniswap">Uniswap</td>
+        <td class="exchange-rate-show1"></td>
+        <td class="random-fee1">$<%= random_fee.sample %></td>
+        <td class="final-exchange-amount1"></td>
+        <td><div class="select-button select-1" data-image="/assets/uniswap.png">Select</div></td>
       </tr>
       <tr class="row-exchange 1inch-table">
         <td><%= image_tag "1inch.png", alt: "alttext", class: "circle-image-exchange" %></td>
-        <td>1inch</td>
-        <td>0.072 </td>
-        <td>$31</td>
-        <td>13.89 ETH</td>
-        <td><div class="select-button select-2">Select</div></td>
+        <td class="inch">1inch</td>
+        <td class="exchange-rate-show2"></td>
+        <td class="random-fee2">$<%= random_fee.sample %></td>
+        <td class="final-exchange-amount2"></td>
+        <td><div class="select-button select-2" data-image="/assets/1inch.png">Select</div></td>
       </tr>
       <tr class="row-exchange kyber-table">
         <td><%= image_tag "kyber.png", alt: "alttext", class: "circle-image-exchange" %></td>
-        <td>Kyber</td>
-        <td>0.071</td>
-        <td>$25</td>
-        <td>14.08 ETH</td>
-        <td><div class="select-button select-3">Select</div></td>
+        <td class="kyber">Kyber</td>
+        <td class="exchange-rate-show3"></td>
+        <td class="random-fee3">$<%= random_fee.sample %></td>
+        <td class="final-exchange-amount3"></td>
+        <td><div class="select-button select-3" data-image="/assets/kyber.png">Select</div></td>
       </tr>
     </table>
     <div class="execute-exchange-buttons d-flex justify-content-around" style="width: 100%; margin-top: 30px;">
@@ -101,8 +102,8 @@
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
   <div class="scanning-box-processing">
     <h5 style="margin-top: 5px; margin-bottom: 35px;">Executing the exchange</h5>
-    <p><strong>1</strong> BTC for <strong>14.28</strong> ETH on</p>
-    <h5 style="margin-bottom: 40px;">Uniswap <%= image_tag "uniswap.png", alt: "alttext", class: "circle-image" %></h5>
+    <p class="processing-asset-info"></p>
+    <h5 class="exchange-on-execution" style="margin-bottom: 40px;"><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image", id: "currency-logo" %></h5>
     <div class="snippet d-flex" data-title=".dot-pulse">
       <div class="stage">
         <div class="dot-pulse"></div>
@@ -120,11 +121,11 @@
       <ul class="summary-exchange-info" style="list-style: none; padding-inline-start: 0px;">
         <% time = Time.now %>
         <li>Date: <%= time.hour %>:<%= time.min %> - <%= time.day %>.<%= time.month %>.<%= time.year %> </li>
-        <li>Exchange: Bitcoin for Ethereum</li>
-        <li>Sold: 1 BTC</li>
-        <li>Received: 14.28 ETH</li>
-        <li>Exchange Rate: 0.071 ETH/BTC</li>
-        <li>Fee: $28</li>
+        <li class="asset-name-summary">Exchange: </li>
+        <li class="asset-sold-summary">Sold: </li>
+        <li class="asset-received-summary">Received: </li>
+        <li class="exchange-rate-summary">Exchange Rate: </li>
+        <li class="fee-summary">Fee: </li>
       </ul>
     </div>
     <div class="success-animation" style="position: absolute; top: -45px; right: 23px;">
