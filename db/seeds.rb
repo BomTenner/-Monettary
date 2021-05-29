@@ -1,11 +1,15 @@
 require 'json'
 require 'open-uri'
 
+puts "Cleaning Transaction Database"
+Transaction.destroy_all
+
 puts "Cleaning Address Databse"
 Address.destroy_all
 
 puts "Cleaning Asset Databse"
 Asset.destroy_all
+
 
 puts "Finished cleaning"
 
@@ -29,6 +33,7 @@ end
 # Asset.create!([{name: "Cardano", price: 2, ticker: "ADA", description: "Scamcoin", logo: "cardano.png"}])
 
 puts "Finished seeding assets"
+
 
 
 
