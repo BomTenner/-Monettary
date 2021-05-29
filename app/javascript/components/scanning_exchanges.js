@@ -9,14 +9,21 @@ const initScanExchanges = () => {
   const container = document.querySelector('.container-exchange');
   const button = document.querySelector('.continue-button');
   const scanning = document.querySelector('.container-scanning-exchanges');
-  if (button) { button.addEventListener("click", (event) => {
+  const sendAsset = document.querySelector('.sending-asset');
+  const receiveAsset = document.querySelector('.receiving-asset');
+  const assetHash = document.querySelector('.asset-hash');
+  if (button) {
+    button.addEventListener("click", (event) => {
+    console.log(sendAsset.value);
+    const assets = JSON.parse(assetHash.innerHTML);
+    console.log(assets[sendAsset.value].ticker);
     event.preventDefault();
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
     window.setTimeout(() => { test(); }, 7000);
-   });
-  }
+  });
+}
 };
 
 let radius = 100; // adjust to move items in and out

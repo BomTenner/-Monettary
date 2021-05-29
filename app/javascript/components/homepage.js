@@ -1,12 +1,14 @@
 
-
 const tabToggle = () => {
   const homepage = document.querySelector(".homepage-container");
-  if (homepage) {
+  const balanceButton = document.querySelector(".balance-button");
+  const priceButton = document.querySelector(".price-button");
+  const chartsButton = document.querySelector(".charts-button");
+  const tabs = document.querySelectorAll(".page-link");
+
+  if (homepage && balanceButton && priceButton && chartsButton) {
     console.log("HP!")
-    const balanceButton = document.querySelector(".balance-button");
-    const priceButton = document.querySelector(".price-button");
-    const chartsButton = document.querySelector(".charts-button");
+
 
     const balance = document.querySelector(".balance-container");
     const price = document.querySelector(".price-container");
@@ -36,6 +38,16 @@ const tabToggle = () => {
   } else {
     console.log("other")
   }
-};
 
-tabToggle()
+  if (tabs) {
+    tabs.forEach(tab => {
+      tab.addEventListener("click", (event) => {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+      });
+    });
+  }
+}
+
+
+export { tabToggle }
