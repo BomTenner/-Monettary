@@ -11,8 +11,8 @@ class AssetsController < ApplicationController
     end
   end
 
-  def create
-
+  def show
+    @asset = Asset.find(params[:id])
   end
 
 end
