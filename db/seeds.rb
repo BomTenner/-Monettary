@@ -1,13 +1,19 @@
 require 'json'
 require 'open-uri'
 
+
 # puts "Cleaning Address Databse"
 # Address.destroy_all
+
+# puts "Cleaning Transaction Database"
+# Transaction.destroy_all
+
 
 # puts "Cleaning Asset Databse"
 # Asset.destroy_all
 
 # puts "Finished cleaning"
+
 
 
 # all_coins = ["bitcoin","ethereum", "chainlink", "cardano", "dogecoin", "tezos", "polkadot", "uniswap", "litecoin", "solana", "stellar", "vechain"]
@@ -45,6 +51,7 @@ all_assets.each do |asset|
 end
 
 puts "Finished seeding asset values"
+
 
 
 
