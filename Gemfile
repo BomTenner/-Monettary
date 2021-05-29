@@ -30,6 +30,9 @@ gem 'activerecord-session_store'
 
 gem 'devise'
 gem "chartkick"
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'sidekiq-scheduler'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

@@ -59,3 +59,5 @@ document.addEventListener('turbolinks:load', () => {
   initExecuteExchange();
   initMoveNext();
 });
+
+import "controllers"
