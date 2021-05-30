@@ -3,7 +3,7 @@
 
   <h3>Transfer Cryptocurrency</h3>
 
-  <div class="currency-transfer main-block">
+  <div class="currency-transfer main-block d-none">
     <div class="currency-transfer-elements d-flex flex-column justify-content-between">
       <div>
         <div class="currency-name"> <%= @address.asset.name %> (<%= @address.asset.ticker %>) </div>
@@ -17,12 +17,18 @@
     </div>
   </div>
 
-  <div class="currency-transfer-new second-block d-none">
+  <div class="currency-transfer-new second-block">
     <div class="currency-transfer-elements">
       <div>
         <div class="currency-choice"> Send <%= @address.asset.name %> (<%= @address.asset.ticker %>) </div>
       </div>
-      <div class="transfer-form">
+      <div class="transfer-form" style="position: relative;">
+        <div class="save-as-contact" style="position: absolute; top: 16px; right: 27px; font-size: 10px;">
+          <p style="border-bottom: 1px solid white;">Save as Contact</p>
+          <div class="save-contact-form d-none">
+            <%= simple_form_for %>
+          </div>
+        </div>
         <%= simple_form_for [@address, @transaction] do |f| %>
           <%= f.input :receiving_address_id, placeholder: "Enter the recipient address" %>
           <div class="d-flex justify-content-between align-items-center">
