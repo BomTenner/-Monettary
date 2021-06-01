@@ -6,4 +6,9 @@ class Address < ApplicationRecord
   self.primary_key = 'address_sequence' 
 
   validates_uniqueness_of :address_sequence
+
+  def +(other)
+    self.balance + other.balance
+  end
+
 end

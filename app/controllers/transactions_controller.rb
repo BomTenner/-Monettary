@@ -10,6 +10,27 @@ class TransactionsController < ApplicationController
     else
       @addresses = Address.all.select{ |add| add.user == current_user}
     end
+
+    @assets_ids = @addresses.map do |address|
+      address.asset.id
+    end
+
+    @crypto_hash = []
+
+    @unique_assets = @assets_ids.uniq # [17, 18, 19]
+
+    @unique_assets.each do |uniq_asset|
+      @addresses_subset = Address.where(asset_id: uniq_asset)
+      @balance = []
+      @addresses_subset.each do |address|
+        @balance << address.balance
+      end
+      @final_balance = @balance.sum.round(2)
+      asset_name = Asset.find(uniq_asset).name
+      asset_price = Asset.find(uniq_asset).price
+      asset_ticker = Asset.find(uniq_asset).ticker
+      @crypto_hash << { name: asset_name, balance: @final_balance, price: asset_price, ticker: asset_ticker }
+    end
   end
 
   def new
