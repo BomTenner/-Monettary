@@ -10,7 +10,11 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.user_1 = current_user
     if @contact.save
-      redirect_to contacts_path
+      if request.referer.include?("transactions/new")
+        redirect_to request.referer
+      else
+        redirect_to contacts_path
+      end
     else
       render :index
     end
