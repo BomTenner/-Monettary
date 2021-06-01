@@ -43,9 +43,13 @@ const initExchange = () => {
 };
 
 const calculateAmount = () => {
+  const sendAsset = document.querySelector('.sending-asset');
+  const receiveAsset = document.querySelector('.receiving-asset');
   const sendAmount = document.querySelector('#transaction_sending_amount');
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
-  receiveAmount.value = sendAmount.value * 14.1;
+  const assetHash = document.querySelector('.asset-hash');
+  const assets = JSON.parse(assetHash.innerHTML);
+  receiveAmount.value = (sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price))).toFixed(2);
 }
 
 const initAmountExchange = () => {
@@ -57,52 +61,6 @@ const initAmountExchange = () => {
     });
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export { initExchange, initAmountExchange }

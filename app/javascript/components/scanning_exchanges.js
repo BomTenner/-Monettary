@@ -12,16 +12,45 @@ const initScanExchanges = () => {
   const sendAsset = document.querySelector('.sending-asset');
   const receiveAsset = document.querySelector('.receiving-asset');
   const assetHash = document.querySelector('.asset-hash');
+  const sendAmount = document.querySelector('#transaction_sending_amount');
+  const receiveAmount = document.querySelector('#transaction_receiving_amount');
   if (button) {
     button.addEventListener("click", (event) => {
-    console.log(sendAsset.value);
-    const assets = JSON.parse(assetHash.innerHTML);
-    console.log(assets[sendAsset.value].ticker);
     event.preventDefault();
+    const assets = JSON.parse(assetHash.innerHTML);
+    const exchangePair = document.querySelector('.exchange-pair');
+    const exchangePairHeader = document.querySelector('.exchange-pair-header');
+    const finalExchangeAmount1 = document.querySelector('.final-exchange-amount1');
+    const finalExchangeAmount2 = document.querySelector('.final-exchange-amount2');
+    const finalExchangeAmount3 = document.querySelector('.final-exchange-amount3');
+    const processingAssetInfo = document.querySelector('.processing-asset-info');
+    const assetNameSummary = document.querySelector('.asset-name-summary');
+    const assetSoldSummary = document.querySelector('.asset-sold-summary');
+    const assetReceivedSummary = document.querySelector('.asset-received-summary');
+    const exchangeRateShow1 = document.querySelector('.exchange-rate-show1');
+    const exchangeRateShow2 = document.querySelector('.exchange-rate-show2');
+    const exchangeRateShow3 = document.querySelector('.exchange-rate-show3');
+    console.log(sendAmount.value); // Send Amount
+    console.log(sendAsset.value); //Asset id
+    console.log(assets[sendAsset.value].ticker); //Asset ticker
+    console.log((assets[receiveAsset.value].price/assets[sendAsset.value].price).toFixed(3)); // Asset price
+    exchangePair.innerHTML = `${assets[receiveAsset.value].ticker}/${assets[sendAsset.value].ticker}`;
+    exchangePairHeader.innerHTML = `${assets[receiveAsset.value].ticker}/${assets[sendAsset.value].ticker}`;
+    finalExchangeAmount1.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.006)).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
+    finalExchangeAmount2.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price))).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
+    finalExchangeAmount3.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.01)).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
+    processingAssetInfo.innerHTML = `${sendAmount.value} ${assets[sendAsset.value].name} for ${receiveAmount.value} ${assets[receiveAsset.value].name} on`;
+    assetNameSummary.innerHTML += `${assets[sendAsset.value].name} for ${assets[receiveAsset.value].name}`;
+    assetSoldSummary.innerHTML += `${sendAmount.value} ${assets[sendAsset.value].ticker}`;
+    assetReceivedSummary.innerHTML += `${receiveAmount.value} ${assets[receiveAsset.value].ticker}`;
+    exchangeRateShow1.innerHTML = ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.006).toFixed(3);
+    exchangeRateShow2.innerHTML = (assets[receiveAsset.value].price/assets[sendAsset.value].price).toFixed(3);
+    exchangeRateShow3.innerHTML = (assets[receiveAsset.value].price/assets[sendAsset.value].price * 1.01).toFixed(3);
+
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
-    window.setTimeout(() => { test(); }, 7000);
+    window.setTimeout(() => { test(); }, 2000);
   });
 }
 };

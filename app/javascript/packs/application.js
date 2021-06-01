@@ -37,6 +37,8 @@ import { initTimer } from '../components/scanning_exchanges';
 
 import { tabToggle } from '../components/homepage';
 
+import { friendsToggle } from '../components/friends_page';
+
 import { initTransfer } from '../components/transfer';
 import { initClickSelect, initExecuteExchange, initMoveNext } from '../components/select_exchange';
 
@@ -48,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
   initMoveIt();
   initTimer();
   initAmountExchange();
-
+  friendsToggle()
   tabToggle();
 
   initTransfer();
@@ -57,3 +59,5 @@ document.addEventListener('turbolinks:load', () => {
   initExecuteExchange();
   initMoveNext();
 });
+
+import "controllers"

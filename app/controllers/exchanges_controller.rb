@@ -13,7 +13,7 @@ class ExchangesController < ApplicationController
     @exchanges = Transaction.where(category: "exchange")
     @asset_hash = {}
     @assets.each do |asset|
-      @asset_hash[asset.id] = { name: asset.name, ticker: asset.ticker }
+      @asset_hash[asset.id] = { name: asset.name.capitalize, ticker: asset.ticker.upcase, price: asset.price }
     end
   end
 

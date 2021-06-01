@@ -7,13 +7,12 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    session[:additional_infos] ||= {}
-    update_assets if session[:additional_infos] == {}
     @assets = Asset.all
     @belongings = []
     @total = 0
     @charts_data = []
-
+    @additional_infos = get_hist_values
+    p @additional_infos 
     @user.addresses.each do |address|
       crypto = {
         address: address,
@@ -36,22 +35,44 @@ class PagesController < ApplicationController
     end
   end
 
+  def get_hist_values
+    hist_values = {}
+    all_values = AssetValue.all
+    all_assets = Asset.all
+
+    all_assets.each do |asset|
+      related_values = all_values.select { |value| value.asset == asset}
+      all_old = []
+      related_values.each do |value|
+        my_arr = [
+          value.date,
+          value.value
+        ]
+        all_old << my_arr
+      end
+      hist_values[asset.name] = all_old
+    end
+
+    return hist_values
+  end
+
   def update_assets
     assets = Asset.all
     last_updated = Asset.last.updated_at
     now = Time.now
     diff = now - last_updated
-      if (diff > 10 )
+      if (diff > 100 )
       assets_names = assets.map { |asset| asset.name.downcase}
       assets_names.each do |id|
         url = "https://api.coingecko.com/api/v3/coins/#{id}"
-        hist_url = "https://api.coingecko.com/api/v3/coins/#{id}/market_chart?vs_currency=eur&days=10&interval=daily"
         coin_serialized = URI.open(url).read
-        history_serialized = URI.open(hist_url).read
         coin = JSON.parse(coin_serialized)
-        history = JSON.parse(history_serialized)
         asset = Asset.select { |asset| asset.name == coin["name"]}[0]
         asset.update(price: coin["market_data"]["current_price"]["eur"])
+
+        hist_url = "https://api.coingecko.com/api/v3/coins/#{id}/market_chart?vs_currency=eur&days=10&interval=daily"
+        history_serialized = URI.open(hist_url).read
+        history = JSON.parse(history_serialized)
         iterator = 10
         tod = Date.today
         hist_with_dates = []

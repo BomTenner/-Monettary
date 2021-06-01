@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_163834) do
+ActiveRecord::Schema.define(version: 2021_05_29_005407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2021_05_27_163834) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "asset_values", force: :cascade do |t|
+    t.datetime "date"
+    t.float "value"
+    t.bigint "asset_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["asset_id"], name: "index_asset_values_on_asset_id"
+  end
+
   create_table "assets", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -39,11 +48,11 @@ ActiveRecord::Schema.define(version: 2021_05_27_163834) do
 
   create_table "contacts", force: :cascade do |t|
     t.bigint "user_1_id", null: false
-    t.bigint "user_2_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "address_sequence"
     t.index ["user_1_id"], name: "index_contacts_on_user_1_id"
-    t.index ["user_2_id"], name: "index_contacts_on_user_2_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -80,8 +89,8 @@ ActiveRecord::Schema.define(version: 2021_05_27_163834) do
 
   add_foreign_key "addresses", "assets"
   add_foreign_key "addresses", "users"
+  add_foreign_key "asset_values", "assets"
   add_foreign_key "contacts", "users", column: "user_1_id"
-  add_foreign_key "contacts", "users", column: "user_2_id"
   add_foreign_key "transactions", "addresses", column: "receiving_address_id", primary_key: "address_sequence"
   add_foreign_key "transactions", "addresses", column: "sending_address_id", primary_key: "address_sequence"
 end

@@ -1,0 +1,38 @@
+<div class="homepage-container mt-5 ml-5">
+  <div class="contact-list">
+    <h2>Your existing contacts</h2>
+    <div class="scroll-container">
+      <div class="row">
+        <% @contacts.each do |contact| %>
+          <div class="col-5">
+            <div class="belong-status">
+              <div class="belong-title">
+                <%= image_tag("avatar.png", size: 36) %>
+                <div>
+                <h5><%= contact.name %></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="btn create-contact" id="add-contact">Create New Contact</div>
+  </div>
+  <div class="new-contact d-none">
+      <h2>Add a new contact</h2>
+  <div class="row">
+  <div class="col-6">
+      <%= simple_form_for(@contact) do |f| %>
+      <%= f.input :name, placeholder: "Enter the contact name" %>
+      <%= f.input :address_sequence, placeholder: "Enter the contact wallet address" %>
+      <%= f.submit "Save", class: "btn create-contact" %>
+      <% end %>
+  </div>
+  </div>
+
+
+  </div>
+
+</div>
