@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_005407) do
+ActiveRecord::Schema.define(version: 2021_06_01_191150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 2021_05_29_005407) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "coingecko_rank"
+    t.bigint "market_cap"
+    t.float "price_change_percentage_24h"
+    t.float "price_change_percentage_7d"
   end
 
   create_table "contacts", force: :cascade do |t|
