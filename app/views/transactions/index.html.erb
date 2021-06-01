@@ -17,17 +17,18 @@
       <th>Price</th>
       <th>Value</th>
     </tr>
-      <% @addresses.each do |address| %>
-    <tr class="data clickable-row" data-url="<%= new_address_transaction_url(address) %>" >
-      <td class="asset-name"><%= address.asset.name %> (<%= address.asset.ticker %>)</td>
-      <% balance = address.balance %>
-      <td><%= balance %> <span class="ticker"><%= address.asset.ticker %></span></td>
-      <% price = address.asset.price %>
-      <td>$<%= '%.3f' % price %></td>
+    <% @crypto_hash.each do |crypto| %>
+    <tr class="data clickable-row" data-url="<%#= new_address_transaction_url(address) %>" >
+      <td class="asset-name"><%= crypto[:name] %> (<%= crypto[:ticker] %>)</td>
+      <% balance = crypto[:balance] %>
+      <td><%= balance %> <span class="ticker"><%= crypto[:ticker] %></span></td>
+      <% price = crypto[:price] %>
+      <td>$<%= price %></td>
       <td>$<%= '%.3f' % (balance * price) %></td>
       <td class="fee"></td>
     </tr>
-      <% end %>
+    <% end %>
+
   </table>
 
 </div>
