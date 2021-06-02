@@ -1,0 +1,49 @@
+<div class="homepage-container">
+  <div class="d-flex justify-content-between">
+      <div class="curr-name-logo">
+      <%= image_tag(@asset.logo, size: 34) %>
+      <h5><%= @asset.name %></h5>
+    </div>
+    <div>
+      <h5 style="margin-top:6px; padding:0px; text-align:right"><%= number_to_currency(@asset.price, options = {unit: "€", precision: 2}) %></h5>
+    </div>
+  </div>
+  <div class="asset-chart-container">
+    <%= line_chart @additional_infos[@asset.name],
+      empty: "No data",
+      width: "100%",
+      height: "200px" ,
+      prefix: "€",
+      points: false,
+      stacked: true,
+      colors: ["#f7932a", "#666"]
+    %>
+  </div>
+
+  <div class="">
+    <div class="asset-kpi">
+    <div class="kpi">
+      <h5>MARKET CAP</h5>
+      <p><%= number_to_currency(@asset.market_cap, options = {unit: "€", precision: 0}) %></p>
+    </div>
+    <div class="kpi ">
+      <h5>24H</h5>
+      <p class="<%= @asset.price_change_percentage_24h > 0 ? "positive": "negative" %>"><%= @asset.price_change_percentage_24h.round(2) %> %</p>
+    </div>
+    <div class="kpi">
+      <h5>7D</h5>
+      <p class="<%= @asset.price_change_percentage_7d > 0 ? "positive": "negative" %>"><%= @asset.price_change_percentage_7d.round(2) %> %</p>
+    </div>
+    <div class="kpi">
+      <h5>RANK</h5>
+      <p># <%= @asset.coingecko_rank %></p>
+    </div>
+  </div>
+  <div class="asset-description ">
+    <h5>ABOUT <%= @asset.name.upcase() %></h5>
+    <p class="scroll-desc-container"><%= @asset.description %></p>
+  </div>
+  </div>
+
+
+  </div>

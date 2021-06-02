@@ -37,10 +37,11 @@ import { initTimer } from '../components/scanning_exchanges';
 
 import { tabToggle } from '../components/homepage';
 
+import { friendsToggle } from '../components/friends_page';
+
 import { initTransfer } from '../components/transfer';
 import { initClickSelect, initExecuteExchange, initMoveNext } from '../components/select_exchange';
 
-import { labelActive } from '../components/sidebar';
 
 document.addEventListener('turbolinks:load', () => {
   //Call your functions here, e.g:
@@ -49,9 +50,8 @@ document.addEventListener('turbolinks:load', () => {
   initMoveIt();
   initTimer();
   initAmountExchange();
-
+  friendsToggle()
   tabToggle();
-  labelActive();
 
   initTransfer();
 
@@ -59,3 +59,5 @@ document.addEventListener('turbolinks:load', () => {
   initExecuteExchange();
   initMoveNext();
 });
+
+import "controllers"

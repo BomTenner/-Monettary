@@ -32,6 +32,7 @@ h2 {
 
   }
 
+
 }
 .curr-status {
   display: flex;
@@ -42,6 +43,12 @@ h2 {
   border-radius: 8px;
   background-color: #0A1C5B;
   border: 0.2px solid rgba(255,255,255,0.15);
+   * &:hover {
+    text-decoration: none;
+    background-color:rgba(255,255,255,0.2);
+    color: #2ba5f7 !important;
+    
+  }
 
   p {
     margin: 0px;
@@ -49,10 +56,18 @@ h2 {
     font-family: 'Titillium Web', sans-serif;
     color: rgba(255,255,255,0.8);
 
+
   }
 
   img {
     opacity: 0.8;
+  }
+}
+
+.asset-link {
+  &:hover {
+    text-decoration: none;
+    color:#2ba5f7;
   }
 }
 
@@ -62,10 +77,12 @@ h2 {
   height: auto;
 }
 
+
+
 .scroll-container {
   height: 380px;
   overflow: scroll;
-  width: 720px;
+  width: 100%;
 }
 
 .belong-status {
@@ -198,7 +215,11 @@ canvas {
     color: rgba(255,255,255,0.6);
     font-weight: bold;
     letter-spacing: 1px;
+    &:hover {
+      color: #2ba5f7;
+    }
   }
+
 
 
 }
@@ -209,9 +230,11 @@ canvas {
     margin: 0px 48px;
     padding: 0px;
     text-align: left;
+    &:hover {
+      color: #2ba5f7;
+    }
   }
 }
-
 
 .comment {
   color: rgba(255,255,255,0.6);

@@ -88,30 +88,34 @@
         </div>
       </div>
     </div>
-    <div class="scroll-container">
-      <div class="row">
+    <div class="scroll-container" >
+      <div class="row" >
         <% @assets.reverse_each do |asset| %>
             <div class="col-12">
-              <div class="curr-status">
+            <%= link_to asset_path(asset), class:"asset-link" do %>
+              <div class="curr-status" >
 
                 <div class="curr-name-logo">
                   <%= image_tag(asset.logo, size: 34) %>
                   <h5><%= asset.name %></h5>
                 </div>
+                
                 <div class="curr-price-cont">
-                <p><%= number_to_currency(asset.price, precision: 0) %></p>
+                <p><%= number_to_currency(asset.price, precision: 2) %></p>
                 </div>
-                  <%= line_chart session[:additional_infos][asset.name],
+                  <%= line_chart @additional_infos[asset.name],
                     empty: "No data",
                     width: "200px",
                     height: "100px" ,
-                    prefix: "$",
+                    prefix: "€",
                     points: false,
                     stacked: true,
                     colors: ["#f7932a", "#666"]
                   %>
-                <p><i class="fas fa-chevron-right"></i></p>
+                <p><i class="asset-link fas fa-chevron-right"></i></p>
+                
               </div>
+              <% end %>
             </div>
         <% end %>
       </div>
