@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="currency-transfer-new second-block">
+  <div class="currency-transfer-new second-block d-none">
     <div class="currency-transfer-elements">
       <div>
         <div class="currency-choice"> Send <%= @asset.name %> (<%= @asset.ticker %>) </div>
@@ -60,9 +60,9 @@
     </div>
   </div>
 
-<!--   <div class="currency-transfer-results third-block d-none">
+  <div class="currency-transfer-results third-block">
     <div>
-      <div class="currency-choice"> Send <%#= @address.asset.name %> (<%#= @address.asset.ticker %>) </div>
+      <div class="currency-choice"> Send <%= @asset.name %> (<%= @asset.ticker %>) </div>
     </div>
     <div class="transaction-details">
       <div class="transfer-details">
@@ -95,15 +95,15 @@
         </div>
       </div>
       <div class="send-cancel-buttons">
-        <%#= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
-        <button type="submit" form="new_transaction" class="btn btn-send">Send</button>
+        <%= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
+        <button type="submit" form="new_transaction" class="btn btn-send btn-send-transfer">Send</button>
       </div>
     </div>
   </div>
 
   <div class="transaction-completed d-none">
     <p>Transaction sent successfully</p>
-    <%#= link_to 'Go back', transactions_path, class: "btn btn-goback"  %>
+    <%= link_to 'Go back', transactions_path, class: "btn btn-goback"  %>
   </div>
- -->
+
 </div>
