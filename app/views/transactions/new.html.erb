@@ -3,14 +3,11 @@
 
   <h3>Transfer Cryptocurrency</h3>
 
-  <div class="currency-transfer main-block d-none">
+  <div class="currency-transfer main-block">
     <div class="currency-transfer-elements d-flex flex-column justify-content-between">
       <div>
         <div class="currency-name"> <%= @asset.name %> (<%= @asset.ticker %>) </div>
-        <% crypto = @crypto_hash.find do |hash| %>
-          <% hash[:ticker] == @asset.ticker %>
-        <% end %>
-        <p class="balance"><small>Available Balance: <%= crypto[:balance] %> <%= @asset.ticker %></small></p>
+        <p class="balance"><small>Available Balance: <%= @asset.balance_for_user(current_user) %> <%= @asset.ticker %></small></p>
       </div>
       <div class="send-receive d-flex justify-content-between">
         <div><a class="btn btn-transfer send-button">Send</a></div>
@@ -20,7 +17,7 @@
     </div>
   </div>
 
-  <div class="currency-transfer-new second-block">
+  <div class="currency-transfer-new second-block d-none">
     <div class="currency-transfer-elements">
       <div>
         <div class="currency-choice"> Send <%= @asset.name %> (<%= @asset.ticker %>) </div>
@@ -42,10 +39,10 @@
         </div>
 
         <%= simple_form_for [@address, @transaction] do |f| %>
-          <%= f.input :sending_address_id, collection: @balance, label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
+          <%= f.input :sending_address_id, collection: @asset.individual_balances_for_user(current_user), label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <%= f.input :receiving_address_id, collection: @friends, label: "Enter the recipient's address", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="current-balance" id="balance-value" data-value="<%= crypto[:balance] %>" data-ticker="<%= @asset.ticker %>"> Current balance: <%= crypto[:balance] %> <%= @asset.ticker %> </div>
+            <div class="current-balance" id="balance-value" data-value="<%= @asset.balance_for_user(current_user) %>" data-ticker="<%= @asset.ticker %>"> Current balance: <span id="current-balance"><%= @asset.balance_for_user(current_user) %></span> <%= @asset.ticker %> </div>
             <div class="btn btn-outline-secondary select-balance">Select all</div>
           </div>
           <%= f.input :sending_amount, as: :integer, label: false, input_html: { max: 5 }, placeholder: "Amount (0.0)" %>
@@ -62,9 +59,9 @@
     </div>
   </div>
 
-<!--   <div class="currency-transfer-results third-block d-none">
+  <div class="currency-transfer-results third-block d-none">
     <div>
-      <div class="currency-choice"> Send <%#= @address.asset.name %> (<%#= @address.asset.ticker %>) </div>
+      <div class="currency-choice"> Send <%= @asset.name %> (<%= @asset.ticker %>) </div>
     </div>
     <div class="transaction-details">
       <div class="transfer-details">
@@ -96,16 +93,16 @@
           </div>
         </div>
       </div>
-      <div class="send-cancel-buttons">
-        <%#= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
-        <button type="submit" form="new_transaction" class="btn btn-send">Send</button>
+      <div class="send-cancel-buttons d-none">
+        <%= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
+        <button type="submit" form="new_transaction" class="btn btn-send btn-send-transfer">Send</button>
       </div>
     </div>
   </div>
 
   <div class="transaction-completed d-none">
     <p>Transaction sent successfully</p>
-    <%#= link_to 'Go back', transactions_path, class: "btn btn-goback"  %>
+    <%= link_to 'Go back', transactions_path, class: "btn btn-goback"  %>
   </div>
- -->
+
 </div>

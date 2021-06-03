@@ -7,7 +7,8 @@ const initTransfer = () => {
   const buttonSend = document.querySelector(".btn-send");
   const receiverAddress = document.getElementById("transaction_receiving_address_id");
   const amount = document.getElementById("transaction_sending_amount");
-  const selectAll = document.querySelector(".select-balance")
+  const selectAll = document.querySelector(".select-balance");
+  const walletSelect = document.querySelector("#transaction_sending_address_id");
 
   // Linking table rows from the currencies list at "transactions index page" to the "transactions new page"
   if (clickableRows) {
@@ -110,6 +111,7 @@ const initTransfer = () => {
       transactionsCompleted.classList.remove("d-none");
     });
   }
+
 
 
 }
