@@ -19,7 +19,6 @@ class TransactionsController < ApplicationController
     @assets = Asset.all
     @transaction = Transaction.new
     @asset = Asset.find(params[:asset_id])
-    crypto_hash
     @contact = Contact.new
     @friends = Contact.all
   end
