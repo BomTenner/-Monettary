@@ -3,7 +3,7 @@
 
   <h3>Transfer Cryptocurrency</h3>
 
-  <div class="currency-transfer main-block">
+  <div class="currency-transfer main-block d-none">
     <div class="currency-transfer-elements d-flex flex-column justify-content-between">
       <div>
         <div class="currency-name"> <%= @asset.name %> (<%= @asset.ticker %>) </div>
@@ -20,12 +20,25 @@
     </div>
   </div>
 
-  <div class="currency-transfer-new second-block d-none">
+  <div class="currency-transfer-new second-block">
     <div class="currency-transfer-elements">
       <div>
         <div class="currency-choice"> Send <%= @asset.name %> (<%= @asset.ticker %>) </div>
       </div>
-      <div class="transfer-form">
+      <div class="transfer-form" style="position: relative; z-index: 1;">
+
+        <div class="save-as-contact" style="position: absolute; top: 15px; right: 27px; font-size: 10px; z-index: 2">
+          <p style="border-bottom: 0.5px solid white;">Save as Contact</p>
+          <div class="save-contact-form" style="width: 200px; height: 120px; padding: 10px; border: 1px solid; position: absolute; top: 31px; right: -1px; background: #0A1C5B;">
+             <%= simple_form_for(@contact) do |f| %>
+               <%= f.input :name, label: "Name:", placeholder: "Enter the contact name", input_html: { style: "font-size: 10px; background: #0A1C5B; color: white;"} %>
+               <%= f.input :address_sequence, :as => :hidden, input_html: { class: "contact-address", style: "background: #0A1C5B;" }, placeholder: "Enter the contact wallet address" %>
+               <%= f.submit "Save", input_html: { style: "background: #0A1C5B;"} %>
+             <% end %>
+          </div>
+          <div class="small-pointer" style="width: 20px; height: 20px; border: 1px solid; border-right: 0px; border-bottom: 0px; position: absolute; top: 21px; right: 20px; transform: rotate(45deg); background: #0A1C5B;"></div>
+        </div>
+
         <%= simple_form_for [@address, @transaction] do |f| %>
           <%= f.input :sending_address_id, collection: @balance, label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <%= f.input :receiving_address_id, label: "Enter the recipient's address", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>

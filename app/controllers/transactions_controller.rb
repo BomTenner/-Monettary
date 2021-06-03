@@ -18,9 +18,9 @@ class TransactionsController < ApplicationController
     @addresses = Address.all
     @assets = Asset.all
     @transaction = Transaction.new
-    # @address = Address.find(params[:address_id])
     @asset = Asset.find(params[:asset_id])
     crypto_hash
+    @contact = Contact.new
   end
 
   def create
