@@ -21,6 +21,7 @@ class TransactionsController < ApplicationController
     @asset = Asset.find(params[:asset_id])
     crypto_hash
     @contact = Contact.new
+    @friends = Contact.all
   end
 
   def create
