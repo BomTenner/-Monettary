@@ -24,11 +24,11 @@
       <h2>Add a new contact</h2>
   <div class="row">
   <div class="col-6">
-      <%= simple_form_for(@contact) do |f| %>
+    <%= simple_form_for(@contact) do |f| %>
       <%= f.input :name, placeholder: "Enter the contact name" %>
       <%= f.input :address_sequence, placeholder: "Enter the contact wallet address" %>
       <%= f.submit "Save", class: "btn create-contact" %>
-      <% end %>
+    <% end %>
   </div>
   </div>
 

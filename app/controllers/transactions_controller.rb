@@ -37,6 +37,7 @@ class TransactionsController < ApplicationController
     @addresses = Address.all
     @transaction = Transaction.new
     @address = Address.find(params[:address_id])
+    @contact = Contact.new
   end
 
   def create
