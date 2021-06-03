@@ -42,6 +42,10 @@ import { friendsToggle } from '../components/friends_page';
 import { initTransfer } from '../components/transfer';
 import { initClickSelect, initExecuteExchange, initMoveNext } from '../components/select_exchange';
 
+import { initStakingCounter } from '../components/staking_countdown'
+
+import { initSaveContact } from '../components/save_contact'
+
 
 document.addEventListener('turbolinks:load', () => {
   //Call your functions here, e.g:
@@ -58,6 +62,11 @@ document.addEventListener('turbolinks:load', () => {
   initClickSelect();
   initExecuteExchange();
   initMoveNext();
+
+  initStakingCounter();
+
+  initSaveContact();
 });
+
 
 import "controllers"

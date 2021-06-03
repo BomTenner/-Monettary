@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_191150) do
+ActiveRecord::Schema.define(version: 2021_06_03_105008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_191150) do
     t.string "address_sequence"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
     t.index ["address_sequence"], name: "index_addresses_on_address_sequence", unique: true
     t.index ["asset_id"], name: "index_addresses_on_asset_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
