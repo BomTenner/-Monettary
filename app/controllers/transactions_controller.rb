@@ -11,32 +11,16 @@ class TransactionsController < ApplicationController
       @addresses = Address.all.select{ |add| add.user == current_user}
     end
 
-    @assets_ids = @addresses.map do |address|
-      address.asset.id
-    end
-
-    @crypto_hash = []
-
-    @unique_assets = @assets_ids.uniq # [17, 18, 19]
-
-    @unique_assets.each do |uniq_asset|
-      @addresses_subset = Address.where(asset_id: uniq_asset)
-      @balance = []
-      @addresses_subset.each do |address|
-        @balance << address.balance
-      end
-      @final_balance = @balance.sum.round(2)
-      asset_name = Asset.find(uniq_asset).name
-      asset_price = Asset.find(uniq_asset).price
-      asset_ticker = Asset.find(uniq_asset).ticker
-      @crypto_hash << { name: asset_name, balance: @final_balance, price: asset_price, ticker: asset_ticker }
-    end
+    crypto_hash
   end
 
   def new
     @addresses = Address.all
+    @assets = Asset.all
     @transaction = Transaction.new
-    @address = Address.find(params[:address_id])
+    # @address = Address.find(params[:address_id])
+    @asset = Asset.find(params[:asset_id])
+    crypto_hash
   end
 
   def create
@@ -60,5 +44,30 @@ class TransactionsController < ApplicationController
 
   def transaction_params
     params.require(:transaction).permit(:sending_address_id, :receiving_amount, :sending_amount)
+  end
+
+  def crypto_hash
+    @assets_ids = @addresses.map do |address|
+      address.asset.id
+    end
+
+    @crypto_hash = []
+
+    @unique_assets = @assets_ids.uniq # [17, 18, 19]
+
+    @unique_assets.each do |uniq_asset|
+      @addresses_subset = Address.where(asset_id: uniq_asset)
+      @balance = []
+      @addresses_subset.each do |address|
+        @balance << address.balance
+      end
+      @final_balance = @balance.sum.round(2)
+      asset = Asset.find(uniq_asset)
+      asset_id = asset.id
+      asset_name = asset.name
+      asset_price = asset.price
+      asset_ticker = asset.ticker
+      @crypto_hash << { id: asset_id, name: asset_name, balance: @final_balance, price: asset_price, ticker: asset_ticker }
+    end
   end
 end

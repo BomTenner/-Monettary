@@ -18,7 +18,7 @@
       <th>Value</th>
     </tr>
     <% @crypto_hash.each do |crypto| %>
-    <tr class="data clickable-row" data-url="<%#= new_address_transaction_url(address) %>" >
+    <tr class="data clickable-row" data-url="<%= new_asset_transaction_url(crypto[:id]) %>" >
       <td class="asset-name"><%= crypto[:name] %> (<%= crypto[:ticker] %>)</td>
       <% balance = crypto[:balance] %>
       <td><%= balance %> <span class="ticker"><%= crypto[:ticker] %></span></td>
@@ -28,7 +28,7 @@
       <td class="fee"></td>
     </tr>
     <% end %>
-
   </table>
+
 
 </div>
