@@ -44,6 +44,8 @@ import { initClickSelect, initExecuteExchange, initMoveNext } from '../component
 
 import { initStakingCounter } from '../components/staking_countdown'
 
+import { initSaveContact } from '../components/save_contact'
+
 
 document.addEventListener('turbolinks:load', () => {
   //Call your functions here, e.g:
@@ -62,6 +64,9 @@ document.addEventListener('turbolinks:load', () => {
   initMoveNext();
 
   initStakingCounter();
+
+  initSaveContact();
 });
+
 
 import "controllers"

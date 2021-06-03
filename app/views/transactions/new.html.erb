@@ -24,16 +24,18 @@
       </div>
       <div class="transfer-form" style="position: relative; z-index: 1;">
 
-        <div class="save-as-contact" style="position: absolute; top: 15px; right: 27px; font-size: 10px; z-index: 2">
-          <p style="border-bottom: 0.5px solid white;">Save as Contact</p>
-          <div class="save-contact-form" style="width: 200px; height: 120px; padding: 10px; border: 1px solid; position: absolute; top: 31px; right: -1px; background: #0A1C5B;">
-             <%= simple_form_for(@contact) do |f| %>
-               <%= f.input :name, label: "Name:", placeholder: "Enter the contact name", input_html: { style: "font-size: 10px; background: #0A1C5B; color: white;"} %>
-               <%= f.input :address_sequence, :as => :hidden, input_html: { class: "contact-address", style: "background: #0A1C5B;" }, placeholder: "Enter the contact wallet address" %>
-               <%= f.submit "Save", input_html: { style: "background: #0A1C5B;"} %>
-             <% end %>
+        <div style="position: absolute; top: 15px; right: 27px; font-size: 10px; z-index: 2;">
+          <p class="save-as-contact" style="border-bottom: 0.5px solid white; cursor: pointer;">Save as Contact</p>
+          <div class="save-contact-container d-none">
+            <div class="save-contact-form" style="width: 200px; height: 120px; padding: 10px; border: 1px solid; position: absolute; top: 31px; right: -1px; background: #0A1C5B;">
+               <%= simple_form_for(@contact) do |f| %>
+                 <%= f.input :name, label: "Name:", placeholder: "Enter the contact name", input_html: { style: "font-size: 10px; background: #0A1C5B; color: white;"} %>
+                 <%= f.input :address_sequence, :as => :hidden, input_html: { class: "contact-address", style: "background: #0A1C5B;" }, placeholder: "Enter the contact wallet address" %>
+                 <%= f.submit "Save", input_html: { class: "submit-contact-button", style: "background: #0A1C5B;"} %>
+               <% end %>
+            </div>
+            <div class="small-pointer" style="width: 20px; height: 20px; border: 1px solid; border-right: 0px; border-bottom: 0px; position: absolute; top: 21px; right: 20px; transform: rotate(45deg); background: #0A1C5B;"></div>
           </div>
-          <div class="small-pointer" style="width: 20px; height: 20px; border: 1px solid; border-right: 0px; border-bottom: 0px; position: absolute; top: 21px; right: 20px; transform: rotate(45deg); background: #0A1C5B;"></div>
         </div>
 
         <%= simple_form_for [@address, @transaction] do |f| %>
