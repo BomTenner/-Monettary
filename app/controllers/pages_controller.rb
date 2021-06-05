@@ -12,27 +12,41 @@ class PagesController < ApplicationController
     @total = 0
     @charts_data = []
     @additional_infos = get_hist_values
-    p @additional_infos 
     @user.addresses.each do |address|
-      crypto = {
-        address: address,
-        name: address.asset.name,
-        logo: address.asset.logo,
-        ticker: address.asset.ticker,
-        balance: address.balance,
-        value: address.balance * address.asset.price,
-      }
-      chart_point = [
-        address.asset.name,
-        address.balance * address.asset.price,
-    ]
-      @belongings << crypto
-      @charts_data << chart_point
+      if (@belongings.any? { |x| x[:name] == address.asset.name } ) 
+      crypto =  @belongings.select {|x| x[:name] == address.asset.name }[0]
+      crypto[:address] << address
+      crypto[:nb_add] += 1
+      crypto[:balance] += address.balance
+      crypto[:value] += address.balance * address.asset.price
+      else
+        crypto = {
+          address: [address],
+          nb_add: 1,
+          name: address.asset.name,
+          logo: address.asset.logo,
+          ticker: address.asset.ticker,
+          balance: address.balance,
+          value: address.balance * address.asset.price,
+        }
+        @belongings << crypto
+      end
     end
 
     @belongings.each do |belonging|
+      chart_point = [
+        belonging[:name],
+        belonging[:value],
+      ]
+      @charts_data << chart_point
       @total += belonging[:value]
     end
+  end
+
+  def confirmation
+    @exchange = Transaction.find(params[:transaction_id])
+    @sending_currency = Address.all.select { |add| add.address_sequence == @exchange.sending_address_id}[0].asset.ticker
+    @receiving_currency = Address.all.select { |add| add.address_sequence == @exchange.receiving_address_id}[0].asset.ticker
   end
 
   def get_hist_values
@@ -52,7 +66,7 @@ class PagesController < ApplicationController
       end
       hist_values[asset.name] = all_old
     end
-
+    hist_values = hist_values
     return hist_values
   end
 

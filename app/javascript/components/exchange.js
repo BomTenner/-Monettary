@@ -48,8 +48,10 @@ const calculateAmount = () => {
   const sendAmount = document.querySelector('#transaction_sending_amount');
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
   const assetHash = document.querySelector('.asset-hash');
-  const assets = JSON.parse(assetHash.innerHTML);
-  receiveAmount.value = (sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price))).toFixed(2);
+  if (assetHash) {
+    const assets = JSON.parse(assetHash.innerHTML);
+    receiveAmount.value = (sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price))).toFixed(2);
+  }
 }
 
 const initAmountExchange = () => {

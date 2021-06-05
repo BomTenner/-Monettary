@@ -40,11 +40,6 @@ class TransactionsController < ApplicationController
     @transaction.save
   end
 
-  def show
-    @transactions = Transaction.all
-    @assets = Asset.all
-  end
-
   private
 
   def transaction_params
