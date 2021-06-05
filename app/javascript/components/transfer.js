@@ -117,6 +117,28 @@ const initTransfer = () => {
       transactionsCompleted.classList.remove("d-none");
     });
   }
+
+  if (walletSelect) {
+    walletSelect.addEventListener("change", (event) => {
+      currentBalance.innerText = walletSelect.value;
+      currentBalance.parentElement.dataset.value = walletSelect.value
+    })
+  }
+
+  if (feeOptions) {
+    feeOptions.addEventListener("click", (event) => {
+      const selectedFee = document.querySelector(".selected");
+      console.log(selectedFee);
+      if (selectedFee) {
+        selectedFee.classList.remove("selected");
+      }
+      event.target.classList.add("selected");
+    });
+    btnSendTransfer.addEventListener("click", (event) => {
+      const selectedFee = document.querySelector(".selected");
+      alert(selectedFee.innerText);
+    })
+  }
 }
 
 const initConvertAmount = () => {
@@ -141,39 +163,6 @@ const initConvertAmount = () => {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  if (walletSelect) {
-    walletSelect.addEventListener("change", (event) => {
-      currentBalance.innerText = walletSelect.value;
-      currentBalance.parentElement.dataset.value = walletSelect.value
-    })
-  }
-
-  if (feeOptions) {
-    feeOptions.addEventListener("click", (event) => {
-      const selectedFee = document.querySelector(".selected");
-      console.log(selectedFee);
-      if (selectedFee) {
-        selectedFee.classList.remove("selected");
-      }
-      event.target.classList.add("selected");
-    });
-    btnSendTransfer.addEventListener("click", (event) => {
-      const selectedFee = document.querySelector(".selected");
-      alert(selectedFee.innerText);
-    })
-  }
 
 
 export { initTransfer, initConvertAmount }
