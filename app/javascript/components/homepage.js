@@ -6,7 +6,6 @@ const tabToggle = () => {
   const chartsButton = document.querySelector(".charts-button");
   const tabs = document.querySelectorAll(".page-link");
   const feeOptions = document.querySelectorAll(".fee-options");
-  const btnSendTransfer = document.querySelector(".btn-send-transfer");
 
   if (homepage && balanceButton && priceButton && chartsButton) {
     console.log("HP!")
@@ -48,23 +47,6 @@ const tabToggle = () => {
         event.target.classList.add('active');
       });
     });
-  }
-
-  if (feeOptions) {
-    feeOptions.forEach( (option) => { option.addEventListener("click", (event) => { option.classList.toggle(".selected") })})
-    // feeOptions.addEventListener("click", (event) => {
-    //   const selectedFee = document.querySelector(".selected");
-    //   console.log(selectedFee);
-    //   if (selectedFee) {
-    //     selectedFee.classList.remove("selected");
-    //   }
-    //   option.classList.add("selected");
-    // });
-    if (btnSendTransfer) { btnSendTransfer.addEventListener("click", (event) => {
-      const selectedFee = document.querySelector(".selected");
-      alert(selectedFee.innerText);
-    })
-   }
   }
 }
 
