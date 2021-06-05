@@ -23,7 +23,7 @@ class TransactionsController < ApplicationController
     @friends = Contact.all
     @asset_addresses = Address.where(asset_id: @asset.id)
     @infos = {}
-    @asset_addresses.each do |add| 
+    @asset_addresses.each do |add|
       @infos[add.address_sequence] = add.balance
     end
   end
@@ -43,6 +43,10 @@ class TransactionsController < ApplicationController
       @transaction.update!(receiving_address: Address.find_by(address_sequence: receiving_address))
     end
     @transaction.save
+  end
+
+  def show
+    @transaction = Transaction.where(exchange)
   end
 
   private
