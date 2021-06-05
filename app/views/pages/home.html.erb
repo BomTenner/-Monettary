@@ -12,10 +12,10 @@
   <p>Current status of your wallet</p>
   </div>
       <div class="scroll-container">
-      <div class="row mb-5">
+      <div class="row">
       <% @belongings.each do |belonging| %>
 
-          <div class="col-6">
+          <div class="col-lg-6 col-md-12">
             <div class="belong-status">
               <div class="belong-title">
                 <%= image_tag(belonging[:logo], size: 36) %>
@@ -25,8 +25,9 @@
               </div>
               <div class="belong-content">
                 <div class="belong-details">
-                  <p><i class="fas fa-coins belong-ico"></i>    <span class="belong-value">  <%= belonging[:balance] %></span> <span style="font-weight:700; font-size:12px">  <%= belonging[:ticker] %></span></p>
-                  <p><i class="fas fa-money-bill-wave belong-ico"></i><span class="belong-value">  <%= number_to_currency(belonging[:value]) %></span></p>
+                  <p><i class="fas fa-wallet belong-ico"></i><span class="belong-value">  <%= belonging[:nb_add] %> addresses</span></p>
+                  <p><i class="fas fa-coins belong-ico"></i>    <span class="belong-value">  <%= belonging[:balance].round(2) %></span> <span style="font-weight:700; font-size:12px">  <%= belonging[:ticker] %></span></p>
+                  <p><i class="fas fa-money-bill-wave belong-ico"></i><span class="belong-value">  <%= number_to_currency(belonging[:value], precision: 0, unit: "€") %></span></p>
                 </div>
                 <div class="belong-profit">
                   <p><i class="fas fa-chart-line belong-ico"></i>  <span class="belong-value" id="prct"> + <%= rand(0..30) %>%</span></p>
@@ -88,7 +89,7 @@
         </div>
       </div>
     </div>
-    <div class="scroll-container" >
+    <div class="scroll-container" style="height:380px">
       <div class="row" >
         <% @assets.reverse_each do |asset| %>
             <div class="col-12">
@@ -101,7 +102,7 @@
                 </div>
                 
                 <div class="curr-price-cont">
-                <p><%= number_to_currency(asset.price, precision: 2) %></p>
+                <p><%= number_to_currency(asset.price, precision: 2, unit: "€") %></p>
                 </div>
                   <%= line_chart @additional_infos[asset.name],
                     empty: "No data",

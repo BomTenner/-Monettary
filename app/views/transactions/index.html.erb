@@ -23,8 +23,8 @@
       <% balance = crypto[:balance] %>
       <td><%= balance %> <span class="ticker"><%= crypto[:ticker] %></span></td>
       <% price = crypto[:price] %>
-      <td>$<%= price %></td>
-      <td>$<%= '%.3f' % (balance * price) %></td>
+      <td><%= number_to_currency(price,  precision: 2, unit: "€") %></td>
+      <td><%= number_to_currency('%.3f' % (balance * price),  precision: 2, unit: "€") %></td>
       <td class="fee"></td>
     </tr>
     <% end %>

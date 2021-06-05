@@ -40,7 +40,7 @@ import { tabToggle } from '../components/homepage';
 import { friendsToggle } from '../components/friends_page';
 
 import { initTransfer } from '../components/transfer';
-import { initClickSelect, initExecuteExchange, initMoveNext } from '../components/select_exchange';
+import { initClickSelect } from '../components/select_exchange';
 
 import { initStakingCounter } from '../components/staking_countdown'
 
@@ -60,8 +60,6 @@ document.addEventListener('turbolinks:load', () => {
   initTransfer();
 
   initClickSelect();
-  initExecuteExchange();
-  initMoveNext();
 
   initStakingCounter();
 
