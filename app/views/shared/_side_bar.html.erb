@@ -15,7 +15,7 @@
       </div>
     <% end %>
     <%= link_to transactions_path do %>
-      <div class="card-action <%= current_class?(transactions_path) %>">
+      <div class="card-action <%= current_class?(transactions_path) %> <%= current_path? if (request.path_info.include?("transactions/new")) %>">
         <i class="fas fa-paper-plane logo"></i>
         <h5>Transfers</h5>
       </div>
@@ -28,7 +28,7 @@
       </div>
     <% end %>
     <%= link_to staking_index_path do %>
-      <div class="card-action">
+      <div class="card-action <%= current_class?(staking_index_path) %>">
         <i class="fas fa-chart-line logo"></i>
         <h5>Staking</h5>
       </div>

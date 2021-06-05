@@ -285,6 +285,12 @@
     }
   }
 
+  .selected {
+    border: 2px solid #f7c02a;
+    background-color: #495079;
+    color: #f7c02a;
+  }
+
   .transaction-completed {
     display: flex;
     flex-direction: column;
@@ -297,7 +303,10 @@
     border-radius: 25px;
     padding: 24px 0 48px 0;
   }
+
 }
+
+
 
 
 

@@ -5,6 +5,7 @@ const tabToggle = () => {
   const priceButton = document.querySelector(".price-button");
   const chartsButton = document.querySelector(".charts-button");
   const tabs = document.querySelectorAll(".page-link");
+  const feeOptions = document.querySelectorAll(".fee-options");
 
   if (homepage && balanceButton && priceButton && chartsButton) {
     console.log("HP!")
