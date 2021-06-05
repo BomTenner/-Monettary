@@ -168,7 +168,7 @@ const initConvertAmount = () => {
   const amountUSD = document.querySelector('.amount-usd');
   const assetInstance = document.querySelector('.asset-instance');
   const walletBalance = document.getElementById('current-balance');
-  
+
   if (selectAllButton) {
     selectAllButton.addEventListener("click", (event) => {
     const asset = JSON.parse(assetInstance.innerHTML);
