@@ -43,7 +43,12 @@
   }
 
 }
-
+.fa-chevron-left {
+  color: white;
+  &:hover {
+    color: #f7c02a;
+  }
+}
 .asset-chart-container {
   margin: 24px 0px;
   padding: 0px 12px

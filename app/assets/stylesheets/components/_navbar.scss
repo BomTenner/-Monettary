@@ -1,8 +1,9 @@
 .navbar-lewagon {
   display: flex;
   justify-content: space-between;
-  background: #404877;
+  background: #344892;
   align-items: center;
+  border-bottom: rgba(255,255,255,0.2) solid  1px;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -18,12 +19,12 @@
 }
 
 .btn-secondary {
-  background-color: #404877;
+  background-color: #344892;
   border: none;
   align-items: center;
 
   &:hover {
-    background-color: #404877;
+    background-color: #344892;
   }
 }
 
