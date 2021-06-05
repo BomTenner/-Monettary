@@ -14,7 +14,7 @@ const initClickSelect = () => {
   if (button1) {
     button1.addEventListener("click", (event) => {
       console.log("1")
-      //image.src = event.target.dataset.image;
+      image.src = event.target.dataset.image;
       button1.classList.toggle('color-change');
       button2.classList.remove('color-change');
       button3.classList.remove('color-change');
@@ -28,7 +28,7 @@ const initClickSelect = () => {
      });
      button2.addEventListener("click", (event) => {
       console.log("2")
-      //image.src = event.target.dataset.image;
+      image.src = event.target.dataset.image;
       button1.classList.remove('color-change');
       button2.classList.toggle('color-change');
       button3.classList.remove('color-change');
@@ -41,7 +41,7 @@ const initClickSelect = () => {
      });
      button3.addEventListener("click", (event) => {
       console.log("3")
-      //image.src = event.target.dataset.image;
+      image.src = event.target.dataset.image;
       button1.classList.remove('color-change');
       button2.classList.remove('color-change');
       button3.classList.toggle('color-change');
