@@ -7,8 +7,4 @@ class Address < ApplicationRecord
 
   validates_uniqueness_of :address_sequence
 
-  def +(other)
-    self.balance + other.balance
-  end
-
 end
