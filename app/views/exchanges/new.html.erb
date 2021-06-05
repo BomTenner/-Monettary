@@ -90,8 +90,8 @@
     </table>
     <div class="execute-exchange-buttons d-flex justify-content-around" style="width: 100%; margin-top: 30px;">
       <%= link_to "Cancel", new_exchange_path, class: "exchange-cancel-button" %>
-      <div class="disable-button">
-        <%= f.submit "Exchange", class: "execute-button pointer-none" %>
+      <div class="">
+        <%= f.submit "Exchange", class: "execute-button disable-button pointer-none" %>
         <% end %>
       </div>
     </div>

@@ -51,12 +51,13 @@
         <% end %>
       </div>
       <p class="asset-instance d-none"><%= @asset.to_json %></p>
+      <p class="balance-hash d-none"><%= @infos.to_json %></p>
       <p class='ticker'> <%= @asset.ticker %> </p>
       <p class='amount-usd'>0.0</p>
       <p class='usd'>EUR</p>
         <div class="not-valid-fb not-valid">
         </div>
-      <div class="btn btn-next next-button disabled-link">Next</div>
+      <div class="btn btn-next next-button">Next</div>
     </div>
   </div>
 
