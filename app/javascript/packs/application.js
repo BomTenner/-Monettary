@@ -40,7 +40,7 @@ import { tabToggle } from '../components/homepage';
 import { friendsToggle } from '../components/friends_page';
 
 
-import { initTransfer } from '../components/transfer';
+import { initTransfer, initConvertAmount } from '../components/transfer';
 import { initClickSelect } from '../components/select_exchange';
 
 

@@ -117,41 +117,6 @@ const initTransfer = () => {
       transactionsCompleted.classList.remove("d-none");
     });
   }
-}
-
-const initConvertAmount = () => {
-  const selectAllButton = document.querySelector('.select-balance');
-  const amountUSD = document.querySelector('.amount-usd');
-  const assetInstance = document.querySelector('.asset-instance');
-  const walletBalance = document.getElementById('current-balance');
-  const amountInputField = document.querySelector('#transaction_sending_amount');
-  if (selectAllButton) {
-    selectAllButton.addEventListener("click", (event) => {
-    const asset = JSON.parse(assetInstance.innerHTML);
-    const usd = walletBalance.innerHTML * asset.price;
-    amountUSD.innerHTML = `${usd}`;
-   });
-  }
-  if (amountInputField) {
-    amountInputField.addEventListener("keyup", (event) => {
-      const asset = JSON.parse(assetInstance.innerHTML);
-      const usd = amountInputField.value * asset.price;
-      amountUSD.innerHTML = `${usd}`;
-    });
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
   if (walletSelect) {
     walletSelect.addEventListener("change", (event) => {
@@ -174,6 +139,30 @@ const initConvertAmount = () => {
       alert(selectedFee.innerText);
     })
   }
+}
+
+const initConvertAmount = () => {
+  const selectAllButton = document.querySelector('.select-balance');
+  const amountUSD = document.querySelector('.amount-usd');
+  const assetInstance = document.querySelector('.asset-instance');
+  const walletBalance = document.getElementById('current-balance');
+  if (selectAllButton) {
+    selectAllButton.addEventListener("click", (event) => {
+    const asset = JSON.parse(assetInstance.innerHTML);
+    const usd = walletBalance.innerHTML * asset.price;
+    amountUSD.innerHTML = `${usd}`;
+   });
+  }
+  if (amountUSD) {
+    const amountInputField = document.querySelector('#transaction_sending_amount');
+    amountInputField.addEventListener("keyup", (event) => {
+      const asset = JSON.parse(assetInstance.innerHTML);
+      const usd = amountInputField.value * asset.price;
+      amountUSD.innerHTML = `${usd}`;
+    });
+  }
+}
+
 
 
 export { initTransfer, initConvertAmount }

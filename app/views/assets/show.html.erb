@@ -1,4 +1,5 @@
 <div class="homepage-container">
+
   <div class="d-flex justify-content-between">
     <%= link_to root_path do %>
       <i class="fas fa-chevron-left"></i>
@@ -31,7 +32,7 @@
     </div>
     <div class="kpi ">
       <h5>24H</h5>
-      <p class="<%= @asset.price_change_percentage_24h > 0 ? "positive": "negative" %>"><%= @asset.price_change_percentage_24h.round(2) %> %</p>
+      <p class="<%= @asset.price_change_percentage_24h > 0 ? "positive": "negative" %>" ><%= @asset.price_change_percentage_24h.round(2) %> </p>
     </div>
     <div class="kpi">
       <h5>7D</h5>
@@ -48,5 +49,10 @@
   </div>
   </div>
 
+</div>
 
-  </div>
+
+
+
+
+
