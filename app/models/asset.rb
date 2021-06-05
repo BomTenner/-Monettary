@@ -7,8 +7,8 @@ class Asset < ApplicationRecord
   end
 
   def individual_balances_for_user(user)
-    Address.where(asset_id: self.id, user_id: user.id).pluck(:balance).each_with_index.map do |balance, index|
-      ["Wallet #{index + 1} (Available balance: #{balance})", balance]
+    Address.where(asset_id: self.id, user_id: user.id).pluck(:balance, :address_sequence).each_with_index.map do |data, index|
+      ["Wallet #{index + 1} (Available balance: #{data[0]})", data[1]]
     end
   end
 end
