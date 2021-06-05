@@ -21,11 +21,16 @@ class TransactionsController < ApplicationController
     @asset = Asset.find(params[:asset_id])
     @contact = Contact.new
     @friends = Contact.all
+    @asset_addresses = Address.where(asset_id: @asset.id)
+    @infos = {}
+    @asset_addresses.each do |add| 
+      @infos[add.address_sequence] = add.balance
+    end
   end
 
   def create
     @transaction = Transaction.new(transaction_params)
-
+    @transaction.category = "transaction"
     sending_amount = params[:transaction][:sending_amount].to_f
     receiving_amount = 0
 

@@ -13,11 +13,12 @@ const initClickSelect = () => {
 
   if (button1) {
     button1.addEventListener("click", (event) => {
-      image.src = event.target.dataset.image;
+      console.log("1")
+      //image.src = event.target.dataset.image;
       button1.classList.toggle('color-change');
       button2.classList.remove('color-change');
       button3.classList.remove('color-change');
-      divExchangeButton.classList.remove('disable-button');
+      buttonExchange.classList.remove('disable-button');
       buttonExchange.classList.remove('pointer-none');
       exchangeRate = localStorage.getItem("rate1")
       localStorage.setItem('rate', exchangeRate);
@@ -26,11 +27,12 @@ const initClickSelect = () => {
       
      });
      button2.addEventListener("click", (event) => {
-      image.src = event.target.dataset.image;
+      console.log("2")
+      //image.src = event.target.dataset.image;
       button1.classList.remove('color-change');
       button2.classList.toggle('color-change');
       button3.classList.remove('color-change');
-      divExchangeButton.classList.remove('disable-button');
+      buttonExchange.classList.remove('disable-button');
       buttonExchange.classList.remove('pointer-none');
       exchangeRate = localStorage.getItem("rate2")
       localStorage.setItem('rate', exchangeRate);
@@ -38,11 +40,13 @@ const initClickSelect = () => {
       localStorage.setItem('fee', fee);
      });
      button3.addEventListener("click", (event) => {
-      image.src = event.target.dataset.image;
+      console.log("3")
+      //image.src = event.target.dataset.image;
       button1.classList.remove('color-change');
       button2.classList.remove('color-change');
       button3.classList.toggle('color-change');
-      divExchangeButton.classList.remove('disable-button');
+      console.log("bla")
+      buttonExchange.classList.remove('disable-button');
       buttonExchange.classList.remove('pointer-none');
       exchangeRate = localStorage.getItem("rate3")
       localStorage.setItem('rate', exchangeRate);
