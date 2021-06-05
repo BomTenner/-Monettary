@@ -9,6 +9,11 @@ const initTransfer = () => {
   const amount = document.getElementById("transaction_sending_amount");
   const selectAll = document.querySelector(".select-balance");
   const walletSelect = document.querySelector("#transaction_sending_address_id");
+  const currentBalance = document.querySelector("#current-balance");
+  const feeOptions = document.querySelector(".network-fee-options");
+  const btnSendTransfer = document.querySelector(".btn-send-transfer");
+
+
 
   // Linking table rows from the currencies list at "transactions index page" to the "transactions new page"
   if (clickableRows) {
@@ -34,7 +39,7 @@ const initTransfer = () => {
     const message = document.querySelector(".not-valid-fb")
     const balanceValue = document.getElementById("balance-value")
     const ticker = balanceValue.dataset.ticker
-    const maxValue = balanceValue.dataset.value
+    let maxValue = balanceValue.dataset.value
     const recipient = document.querySelector(".transfer-details");
 
 
@@ -54,6 +59,7 @@ const initTransfer = () => {
 
 
     selectAll.addEventListener("click", (event) => {
+      maxValue = balanceValue.dataset.value
       amount.value = parseFloat(maxValue)
       if (parseFloat(amount.value) <= parseFloat(maxValue) && receiverAddress.value.length > 1 ) {
         message.innerHTML = '';
@@ -112,7 +118,27 @@ const initTransfer = () => {
     });
   }
 
+  if (walletSelect) {
+    walletSelect.addEventListener("change", (event) => {
+      currentBalance.innerText = walletSelect.value;
+      currentBalance.parentElement.dataset.value = walletSelect.value
+    })
+  }
 
+  if (feeOptions) {
+    feeOptions.addEventListener("click", (event) => {
+      const selectedFee = document.querySelector(".selected");
+      console.log(selectedFee);
+      if (selectedFee) {
+        selectedFee.classList.remove("selected");
+      }
+      event.target.classList.add("selected");
+    });
+    btnSendTransfer.addEventListener("click", (event) => {
+      const selectedFee = document.querySelector(".selected");
+      alert(selectedFee.innerText);
+    })
+  }
 
 }
 
