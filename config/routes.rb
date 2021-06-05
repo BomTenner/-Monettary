@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get '/confirmation/:transaction_id', to: 'pages#confirmation', as: "trans_confirmation"
+
   resources :addresses, only: [:index,:show]
 
   resources :exchanges, only: [:index, :new, :create]
