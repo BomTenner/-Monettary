@@ -41,7 +41,8 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    @transaction = Transaction.all
+    @transactions = Transaction.all
+    @assets = Asset.all
   end
 
   private

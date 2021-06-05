@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :assets, only: [:index, :show] do
     resources :addresses, only: [:new, :create]
-    resources :transactions, only: [:new, :create]
+    resources :transactions, only: [:new, :create, :show]
   end
 
   resources :contacts, only: [:index, :create]
