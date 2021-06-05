@@ -60,10 +60,11 @@ const tabToggle = () => {
     //   }
     //   option.classList.add("selected");
     // });
-    btnSendTransfer.addEventListener("click", (event) => {
+    if (btnSendTransfer) { btnSendTransfer.addEventListener("click", (event) => {
       const selectedFee = document.querySelector(".selected");
       alert(selectedFee.innerText);
     })
+   }
   }
 }
 
