@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :exchanges, only: [:index, :new, :create]
 
-  resources :transactions, only: [:index]
+  resources :transactions, only: [:index, :create]
 
   resources :assets, only: [:index, :show] do
     resources :addresses, only: [:new, :create]
