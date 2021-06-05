@@ -29,7 +29,7 @@ require 'open-uri'
 #   Asset.create!([{
 #       name: coin["name"],
 #       price: coin["market_data"]["current_price"]["eur"],
-#       ticker: coin["symbol"],
+#       ticker: coin["symbol"].capitalize,
 #       description: coin["description"]["en"],
 #       logo: coin["image"]["large"],
 #       coingecko_rank: coin["coingecko_rank"] ,
