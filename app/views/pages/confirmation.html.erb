@@ -1,0 +1,22 @@
+<div class="container-exchange-confirmation">
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-conformation">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Exchange completed!</h5>
+    <div class="exchange-summary-box d-flex flex-column align-left" style="width: 80%; height: 190px;">
+      <h6><u>Review transaction:</u></h6>
+      <ul class="summary-exchange-info" style="list-style: none; padding-inline-start: 0px;">
+        <% time = Time.now %>
+        <li>Date: <%= time.hour %>:<%= time.min %> - <%= time.day %>.<%= time.month %>.<%= time.year %> </li>
+        <li class="asset-name-summary">Exchange: <%= @sending_currency %> to <%= @receiving_currency %></li>
+        <li class="asset-sold-summary">Sold: <%= @exchange.sending_amount %></li>
+        <li class="asset-received-summary">Received: <%= @exchange.receiving_amount %></li>
+        <li class="exchange-rate-summary">Exchange Rate: </li>
+        <li class="fee-summary">Fee: </li>
+      </ul>
+    </div>
+    <div class="success-animation" style="position: absolute; top: -45px; right: 23px;">
+      <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+    </div>
+    <%= link_to "Go back", new_exchange_path, class: "exchange-go-back-button" %>
+  </div>
+</div>

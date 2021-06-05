@@ -1,5 +1,8 @@
 <div class="homepage-container">
   <div class="d-flex justify-content-between">
+    <%= link_to root_path do %>
+      <i class="fas fa-chevron-left"></i>
+    <% end %>
       <div class="curr-name-logo">
       <%= image_tag(@asset.logo, size: 34) %>
       <h5><%= @asset.name %></h5>
