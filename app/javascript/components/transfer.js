@@ -135,9 +135,6 @@ const initTransfer = () => {
   }
 
   if (walletSelect) {
-
-
-    
     walletSelect.addEventListener("change", (event) => {
       const allBalances = JSON.parse(document.querySelector(".balance-hash").innerHTML)
       var myBalance = allBalances[walletSelect.value]
@@ -156,10 +153,6 @@ const initTransfer = () => {
       }
       event.target.classList.add("selected");
     });
-    btnSendTransfer.addEventListener("click", (event) => {
-      const selectedFee = document.querySelector(".selected");
-      //alert(selectedFee.innerText);
-    })
   }
 }
 
