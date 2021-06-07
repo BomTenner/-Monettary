@@ -11,7 +11,7 @@ const initTransfer = () => {
   const selectAll = document.querySelector(".select-balance");
   const walletSelect = document.querySelector("#transaction_sending_address_id");
   const currentBalance = document.querySelector("#current-balance");
-  const feeOptions = document.querySelector(".network-fee-options");
+  const feeOptions = document.querySelectorAll(".fee-options");
   const btnSendTransfer = document.querySelector(".btn-send-transfer");
 
 
@@ -145,13 +145,14 @@ const initTransfer = () => {
   }
 
   if (feeOptions) {
-    feeOptions.addEventListener("click", (event) => {
-      const selectedFee = document.querySelector(".selected");
-      console.log(selectedFee);
-      if (selectedFee) {
-        selectedFee.classList.remove("selected");
-      }
-      event.target.classList.add("selected");
+    feeOptions.forEach(option => {
+      // console.log(option);
+      option.addEventListener("click", (event) => {
+        feeOptions.forEach(option => {
+          option.classList.remove("selected")
+        });
+        option.classList.add("selected");
+      });
     });
   }
 }
