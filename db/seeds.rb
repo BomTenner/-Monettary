@@ -11,7 +11,6 @@ Address.destroy_all
 puts "Cleaning Transaction Database"
 Transaction.destroy_all
 
-
 puts "Cleaning Asset Databse"
 Asset.destroy_all
 
@@ -20,6 +19,7 @@ puts "Finished cleaning"
 
 
 all_coins = ["bitcoin","ethereum", "chainlink", "cardano", "dogecoin", "tezos", "polkadot", "uniswap", "litecoin", "solana", "stellar", "vechain"]
+
 
 all_coins.each do |id|
   url = "https://api.coingecko.com/api/v3/coins/#{id}"
@@ -38,6 +38,7 @@ all_coins.each do |id|
       price_change_percentage_7d: coin["market_data"]["price_change_percentage_7d"],
   }])
 end
+
 
 puts "Finished seeding assets"
 
