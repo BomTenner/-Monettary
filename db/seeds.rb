@@ -29,7 +29,7 @@ all_coins.each do |id|
   Asset.create!([{
       name: coin["name"],
       price: coin["market_data"]["current_price"]["eur"],
-      ticker: coin["symbol"].capitalize,
+      ticker: coin["symbol"].upcase,
       description: coin["description"]["en"],
       logo: coin["image"]["large"],
       coingecko_rank: coin["coingecko_rank"] ,
