@@ -11,10 +11,13 @@ const initSaveContact = () => {
     });
   }
   if (submitButton) {
+    console.log("submit btn there!")
     submitButton.addEventListener("click", (event) => {
+      console.log("create contact!")
     saveForm.classList.add("d-none");
     });
   }
+
 };
 
 
