@@ -11,6 +11,7 @@ const initTransfer = () => {
   const selectAll = document.querySelector(".select-balance");
   const walletSelect = document.querySelector("#transaction_sending_address_id");
   const currentBalance = document.querySelector("#current-balance");
+  const networkFeeOptions = document.querySelector(".network-fee-options");
   const feeOptions = document.querySelectorAll(".fee-options");
   const btnSendTransfer = document.querySelector(".btn-send-transfer");
 
@@ -64,7 +65,7 @@ const initTransfer = () => {
 
       if (amount.value.length < 1) {
         amount.classList.add("not-valid")
-        var currentMessage = `<p>Add an amound</p>`
+        var currentMessage = `<p>Add an amount</p>`
         if (!errorMessages.includes(currentMessage) ) {
           errorMessages += currentMessage
         }
@@ -76,7 +77,7 @@ const initTransfer = () => {
         console.log(amount.value)
         console.log(maxValue)
         amount.classList.add("not-valid")
-        var currentMessage = `<p>Add an amound lower than your balance</p>`
+        var currentMessage = `<p>Add an amount lower than your balance</p>`
         if (!errorMessages.includes(currentMessage) ) {
           errorMessages += currentMessage
         }
@@ -125,14 +126,51 @@ const initTransfer = () => {
 
   }
 
-  if (buttonSend) {
-    buttonSend.addEventListener("click", (event) => {
-      const thirdBlock = document.querySelector(".third-block");
-      const transactionsCompleted = document.querySelector(".transaction-completed");
-      thirdBlock.classList.add("d-none");
-      transactionsCompleted.classList.remove("d-none");
+  if (feeOptions) {
+    const message = document.querySelector(".non-valid-fb");
+
+    feeOptions.forEach(option => {
+      message.innerHTML = '';
+      option.addEventListener("click", (event) => {
+        feeOptions.forEach(option => {
+          option.classList.remove("selected");
+          option.classList.remove("invalid-choice");
+          message.innerHTML = '';
+        });
+        option.classList.add("selected");
+      });
     });
   }
+
+
+  if (buttonSend) {
+    const message = document.querySelector(".non-valid-fb");
+
+    buttonSend.addEventListener("click", (event) => {
+      event.preventDefault();
+      message.innerHTML = '';
+      let errorMessage = "";
+      feeOptions.forEach(option => {
+        if (!option.classList.contains("selected")) {
+          option.classList.add("invalid-choice");
+          let currentErrorMessage = '<p>Please select an option</p>';
+          if (!errorMessage.includes(currentErrorMessage) ) {
+            errorMessage += currentErrorMessage;
+            message.insertAdjacentHTML("beforeEnd", errorMessage);
+          }
+        } else {
+          option.classList.remove("invalid-choice");
+          const thirdBlock = document.querySelector(".third-block");
+          const transactionsCompleted = document.querySelector(".transaction-completed");
+          thirdBlock.classList.add("d-none");
+          transactionsCompleted.classList.remove("d-none");
+        };
+      });
+    });
+  }
+
+
+
 
   if (walletSelect) {
     walletSelect.addEventListener("change", (event) => {
@@ -144,17 +182,6 @@ const initTransfer = () => {
     })
   }
 
-  if (feeOptions) {
-    feeOptions.forEach(option => {
-      // console.log(option);
-      option.addEventListener("click", (event) => {
-        feeOptions.forEach(option => {
-          option.classList.remove("selected")
-        });
-        option.classList.add("selected");
-      });
-    });
-  }
 }
 
 const initConvertAmount = () => {
