@@ -46,7 +46,7 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    @transaction = Transaction.where(exchange)
+    @transaction = Transaction.where(:exchange)
   end
 
   private
