@@ -12,9 +12,10 @@
 
 .exchange-header {
   position: absolute;
-  top: 40px;
-  font-weight: 200px !important;
+  top: 56px;
+  font-weight: 200 !important;
   font-family: "Nunito", "Helvetica", "sans-serif";
+  font-size: 33px;
 }
 
 .direction {
@@ -31,8 +32,8 @@
 
 .box {
   border: 1px solid;
-  width: 254px;
-  height: 242px;
+  width: 275px;
+  height: 255px;
   border-radius: 21px;
   display: flex;
   flex-direction: column;
@@ -91,14 +92,14 @@
   background-color: #0A1C5B;
   color: white;
   font-size: 15px;
-  width: 150px;
+  width: 165px;
 }
 
 #transaction_sending_address_id, #transaction_receiving_address_id {
   background-color: #0A1C5B;
   color: white;
   font-size: 10px;
-  width: 150px;
+  width: 165px;
 }
 
 .transaction_sending_address_id, .transaction_receiving_address_id {
@@ -108,7 +109,7 @@
 #transaction_sending_amount, #transaction_receiving_amount {
   background-color: #FFF3C0;
   color: #F4790E;
-  width: 150px;
+  width: 165px;
   border: 1px solid white;
   border-radius: 7px;
   text-align: center;
@@ -128,4 +129,8 @@ input::-webkit-inner-spin-button {
 
 .select {
   font-size: 10px;
+}
+
+.fa-long-arrow-alt-right:before {
+  margin: 0px 10px;
 }

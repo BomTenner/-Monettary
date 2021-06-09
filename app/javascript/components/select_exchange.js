@@ -100,7 +100,7 @@ const initMoveProcessing = () => {
   const lastPage = document.querySelector('.container-exchange-confirmation');
   const processingAssetInfo = document.querySelector('.processing-asset-info');
   if (processingPage) {
-    window.setTimeout(() => { confirmation(); }, 7000);
+    window.setTimeout(() => { confirmation(); }, 6000);
     const info = localStorage.getItem("processInfo");
     processingAssetInfo.innerHTML = info;
   }
