@@ -66,13 +66,13 @@ class TransactionsController < ApplicationController
       @addresses_subset.each do |address|
         @balance << address.balance
       end
-      @final_balance = @balance.sum.round(2)
+      @total_balance = @balance.sum.round(2)
       asset = Asset.find(uniq_asset)
       asset_id = asset.id
       asset_name = asset.name
       asset_price = asset.price
       asset_ticker = asset.ticker
-      @crypto_hash << { id: asset_id, name: asset_name, balance: @final_balance, price: asset_price, ticker: asset_ticker }
+      @crypto_hash << { id: asset_id, name: asset_name, balance: @total_balance, price: asset_price, ticker: asset_ticker }
     end
   end
 end
