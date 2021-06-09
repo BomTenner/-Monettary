@@ -13,7 +13,8 @@
 .exchange-header {
   position: absolute;
   top: 40px;
-  font-weight: 200px;
+  font-weight: 200px !important;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
 .direction {

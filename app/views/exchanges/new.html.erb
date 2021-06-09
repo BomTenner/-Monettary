@@ -68,7 +68,7 @@
         <th></th>
       </tr>
       <tr class="row-exchange uniswap-table">
-        <td><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image-exchange uniswap-logo" %></td>
         <td class="uniswap">Uniswap</td>
         <td class="exchange-rate-show1"></td>
         <td class="random-fee1">$<%= random_fee.sample %></td>
@@ -76,7 +76,7 @@
         <td><div class="select-button select-1" data-image="/assets/uniswap.png">Select</div></td>
       </tr>
       <tr class="row-exchange 1inch-table">
-        <td><%= image_tag "1inch.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td><%= image_tag "1inch.png", alt: "alttext", class: "circle-image-exchange inch-logo" %></td>
         <td class="inch">1inch</td>
         <td class="exchange-rate-show2"></td>
         <td class="random-fee2">$<%= random_fee.sample %></td>
@@ -84,7 +84,7 @@
         <td><div class="select-button select-2" data-image="/assets/1inch.png">Select</div></td>
       </tr>
       <tr class="row-exchange kyber-table">
-        <td><%= image_tag "kyber.png", alt: "alttext", class: "circle-image-exchange" %></td>
+        <td><%= image_tag "kyber.png", alt: "alttext", class: "circle-image-exchange kyber-logo" %></td>
         <td class="kyber">Kyber</td>
         <td class="exchange-rate-show3"></td>
         <td class="random-fee3">$<%= random_fee.sample %></td>
@@ -102,19 +102,7 @@
   </div>
 </div>
 
-<div class="container-exchange-processing d-none">
-  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
-  <div class="scanning-box-processing">
-    <h5 style="margin-top: 5px; margin-bottom: 35px;">Executing the exchange</h5>
-    <p class="processing-asset-info"></p>
-    <h5 class="exchange-on-execution" style="margin-bottom: 40px;"><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image", id: "currency-logo" %></h5>
-    <div class="snippet d-flex" data-title=".dot-pulse">
-      <div class="stage">
-        <div class="dot-pulse"></div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 

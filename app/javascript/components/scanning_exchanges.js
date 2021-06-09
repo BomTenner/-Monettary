@@ -23,7 +23,7 @@ const initScanExchanges = () => {
     const finalExchangeAmount1 = document.querySelector('.final-exchange-amount1');
     const finalExchangeAmount2 = document.querySelector('.final-exchange-amount2');
     const finalExchangeAmount3 = document.querySelector('.final-exchange-amount3');
-    const processingAssetInfo = document.querySelector('.processing-asset-info');
+    // const processingAssetInfo = document.querySelector('.processing-asset-info');
     // const assetNameSummary = document.querySelector('.asset-name-summary');
     // const assetSoldSummary = document.querySelector('.asset-sold-summary');
     // const assetReceivedSummary = document.querySelector('.asset-received-summary');
@@ -39,10 +39,12 @@ const initScanExchanges = () => {
     finalExchangeAmount1.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.006)).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
     finalExchangeAmount2.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price))).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
     finalExchangeAmount3.innerHTML = `${(sendAmount.value / ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.01)).toFixed(2)} ${assets[receiveAsset.value].ticker}`;
-    processingAssetInfo.innerHTML = `${sendAmount.value} ${assets[sendAsset.value].name} for ${receiveAmount.value} ${assets[receiveAsset.value].name} on`;
+    // processingAssetInfo.innerHTML = `${sendAmount.value} ${assets[sendAsset.value].name} for ${receiveAmount.value} ${assets[receiveAsset.value].name} on`;
     // assetNameSummary.innerHTML += `${assets[sendAsset.value].name} for ${assets[receiveAsset.value].name}`;
     // assetSoldSummary.innerHTML += `${sendAmount.value} ${assets[sendAsset.value].ticker}`;
     // assetReceivedSummary.innerHTML += `${receiveAmount.value} ${assets[receiveAsset.value].ticker}`;
+    var processInfo = `${sendAmount.value} ${assets[sendAsset.value].name} for ${receiveAmount.value} ${assets[receiveAsset.value].name} on`;
+    localStorage.setItem("processInfo", processInfo);
     var rate1 = ((assets[receiveAsset.value].price/assets[sendAsset.value].price) * 1.006).toFixed(3);
     localStorage.setItem("rate1", rate1)
     exchangeRateShow1.innerHTML = rate1

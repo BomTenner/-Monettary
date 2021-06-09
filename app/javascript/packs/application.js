@@ -41,7 +41,7 @@ import { friendsToggle } from '../components/friends_page';
 
 
 import { initTransfer, initConvertAmount } from '../components/transfer';
-import { initClickSelect } from '../components/select_exchange';
+import { initClickSelect, initMoveProcessing } from '../components/select_exchange';
 
 
 import { initStakingCounter } from '../components/staking_countdown'
@@ -63,6 +63,7 @@ document.addEventListener('turbolinks:load', () => {
   initConvertAmount();
 
   initClickSelect();
+  initMoveProcessing();
 
   initStakingCounter();
 

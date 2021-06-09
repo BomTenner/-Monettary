@@ -1,4 +1,21 @@
-<div class="container-exchange-confirmation">
+<div class="container-exchange-processing">
+  <h1 class="exchange-header">Exchange Cryptocurrency</h1>
+  <div class="scanning-box-processing">
+    <h5 style="margin-top: 5px; margin-bottom: 35px;">Executing the exchange</h5>
+    <p class="processing-asset-info"></p>
+    <br>
+    <p class="exchange-name"></p>
+    <h5 class="exchange-on-execution" style="margin-bottom: 40px;"><%= image_tag "uniswap.png", alt: "alttext", class: "circle-image", id: "currency-logo" %></h5>
+    <div class="snippet d-flex" data-title=".dot-pulse">
+      <div class="stage">
+        <div class="dot-pulse"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-exchange-confirmation d-none">
   <h1 class="exchange-header">Exchange Cryptocurrency</h1>
   <div class="scanning-box-conformation">
     <h5 style="margin-top: 5px; margin-bottom: 35px;">Exchange completed!</h5>
