@@ -59,7 +59,7 @@ const initAmountExchange = () => {
   const receiveAmount = document.querySelector('#transaction_receiving_amount');
   if (sendAmount) {
     sendAmount.addEventListener("keyup", (event) => {
-      window.setTimeout(() => { calculateAmount(); }, 2000);
+      window.setTimeout(() => { calculateAmount(); }, 6000);
     });
   }
 };
