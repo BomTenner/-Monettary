@@ -4,6 +4,11 @@ class ContactsController < ApplicationController
     all_contacts = Contact.all
     @contact = Contact.new
     @contacts = all_contacts.select{ |contact| contact.user_1 == current_user}
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { contacts: @contacts } }
+    end
   end
 
   def create
@@ -11,7 +16,7 @@ class ContactsController < ApplicationController
     @contact.user_1 = current_user
     if @contact.save
       if request.referer.include?("transactions/new")
-        redirect_to request.referer
+        return
       else
         redirect_to contacts_path
       end
