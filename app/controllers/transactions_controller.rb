@@ -29,6 +29,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
+
     @transaction = Transaction.new(transaction_params)
     @transaction.category = "transaction"
     sending_amount = params[:transaction][:sending_amount].to_f
@@ -39,6 +40,7 @@ class TransactionsController < ApplicationController
     old_balance = sending_address.balance
     new_balance = old_balance - sending_amount + receiving_amount
     sending_address.update!(balance: new_balance)
+
     if Address.exists?(address_sequence: receiving_address)
       @transaction.update!(receiving_address: Address.find_by(address_sequence: receiving_address))
     end
