@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     end
     @final_balance = @balance.sum.round(2)
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
