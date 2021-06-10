@@ -11,5 +11,5 @@
   - active_storage_purge
 :schedule:
   dailyvalues_job:
-    cron: '0 * * * * *'  
+    cron: '* * * * * *'  
     class: DailyvaluesJob

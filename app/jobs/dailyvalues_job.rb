@@ -4,7 +4,7 @@ class DailyvaluesJob < ApplicationJob
   queue_as :default
 
   def perform
-    # AssetValue.add_today_values
-    AssetValue.test_job
+    AssetValue.add_today_values
+    # AssetValue.test_job
   end
 end

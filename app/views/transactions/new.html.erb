@@ -42,13 +42,13 @@
           <%= f.input :sending_address_id, collection: @asset.individual_balances_for_user(current_user), label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <%= f.input :receiving_address_id, collection: @friends, label: "Enter the recipient's address", input_html: { data: { target: "contacts.list" } }, label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="current-balance" id="balance-value" data-value="<%= @asset.balance_for_user(current_user).round(2) %>" data-ticker="<%= @asset.ticker %>"> Current balance: <span id="current-balance"><%= @asset.balance_for_user(current_user) %></span> <%= @asset.ticker %> </div>
+            <div class="current-balance" id="balance-value" data-value="<%= @asset.balance_for_user(current_user).round(2) %>" data-ticker="<%= @asset.ticker %>"> Current balance: <span id="current-balance"><%= @asset.balance_for_user(current_user).round(2) %></span> <%= @asset.ticker %> </div>
             <div class="btn btn-outline-secondary select-balance">Select all</div>
           </div>
           <%= f.input :sending_amount, as: :integer, label: false, input_html: { max: 5 }, placeholder: "Amount (0.0)" %>
           <%#= f.input :sending_address_id, :as => :hidden, :input_html => { :value => @address.address_sequence } %>
           <%#= f.input :receiving_amount, :as => :hidden, :input_html => { :value => 0 } %>
-        <% end %>
+        
       </div>
       <p class="asset-instance d-none"><%= @asset.to_json %></p>
       <p class="balance-hash d-none"><%= @infos.to_json %></p>
@@ -99,7 +99,9 @@
       </div>
       <div class="send-cancel-buttons">
         <%= link_to 'Cancel', transactions_path, class: "btn btn-outline-secondary btn-cancel"  %>
-        <button type="submit" form="new_transaction" class="btn btn-send btn-send-transfer">Send</button>
+        <%# <button type="submit" form="new_transaction" class="btn btn-send btn-send-transfer">Send</button> %>
+        <%= f.submit "Send", class: "btn btn-send btn-send-transfer" %>
+        <% end %>
       </div>
     </div>
   </div>

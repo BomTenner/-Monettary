@@ -1,5 +1,15 @@
 // Specific CSS for your home-page
+.page-link:focus {
+  outline:none !important;
+  box-shadow: none;
+}
 
+.page-link:hover {
+  box-shadow: none;
+}
+.page-item:focus {
+  outline:none !important;
+}
 .anon {
   width: 80px;
   height: 80px;
