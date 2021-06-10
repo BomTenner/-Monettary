@@ -42,7 +42,7 @@
           <%= f.input :sending_address_id, collection: @asset.individual_balances_for_user(current_user), label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <%= f.input :receiving_address_id, collection: @friends, label: "Enter the recipient's address", input_html: { data: { target: "contacts.list" } }, label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
           <div class="d-flex justify-content-between align-items-center">
-            <div class="current-balance" id="balance-value" data-value="<%= @asset.balance_for_user(current_user) %>" data-ticker="<%= @asset.ticker %>"> Current balance: <span id="current-balance"><%= @asset.balance_for_user(current_user) %></span> <%= @asset.ticker %> </div>
+            <div class="current-balance" id="balance-value" data-value="<%= @asset.balance_for_user(current_user).round(2) %>" data-ticker="<%= @asset.ticker %>"> Current balance: <span id="current-balance"><%= @asset.balance_for_user(current_user) %></span> <%= @asset.ticker %> </div>
             <div class="btn btn-outline-secondary select-balance">Select all</div>
           </div>
           <%= f.input :sending_amount, as: :integer, label: false, input_html: { max: 5 }, placeholder: "Amount (0.0)" %>

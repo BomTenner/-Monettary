@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
     @asset_addresses = Address.where(asset_id: @asset.id)
     @infos = {}
     @asset_addresses.each do |add| 
-      @infos[add.address_sequence] = add.balance
+      @infos[add.address_sequence] = add.balance.round(2)
     end
   end
 

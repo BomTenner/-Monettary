@@ -61,7 +61,7 @@ const initClickSelect = () => {
     const chosenFee = localStorage.getItem('fee');
     const chosenRate = localStorage.getItem('rate');
     feeSummary.innerHTML = `Fee: ${chosenFee}`;
-    exchangeRateSummary.innerHTML = `Exchange Rate ${chosenRate}`;
+    exchangeRateSummary.insertAdjacentHTML( "afterbegin",`Exchange Rate: ${chosenRate}`);
   }
 };
 

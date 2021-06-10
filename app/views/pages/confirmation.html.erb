@@ -24,10 +24,10 @@
       <ul class="summary-exchange-info" style="list-style: none; padding-inline-start: 0px;">
         <% time = Time.now %>
         <li>Date: <%= time.hour %>:<%= time.min %> - <%= time.day %>.<%= time.month %>.<%= time.year %> </li>
-        <li class="asset-name-summary">Exchange: <%= @sending_currency %> to <%= @receiving_currency %></li>
+        <li class="asset-name-summary">Exchange: <%= @sending_currency.upcase %> to <%= @receiving_currency.upcase %></li>
         <li class="asset-sold-summary">Sold: <%= @exchange.sending_amount %></li>
         <li class="asset-received-summary">Received: <%= @exchange.receiving_amount %></li>
-        <li class="exchange-rate-summary">Exchange Rate: </li>
+        <li class="exchange-rate-summary"> <%= @sending_currency.upcase %>/<%= @receiving_currency.upcase %></li>
         <li class="fee-summary">Fee: </li>
       </ul>
     </div>
