@@ -113,8 +113,8 @@ const initTransfer = () => {
         senderAddress.classList.remove("is-invalid")
         amount.classList.remove("not-valid")
         nextButton.classList.remove("disabled-link")
-
-        recipient.insertAdjacentHTML("beforeEnd", `<p>Recipient: ${receiverAddress.value}</p>`);
+        var selectedRecipient = receiverAddress.options[receiverAddress.selectedIndex].text
+        recipient.insertAdjacentHTML("beforeEnd", `<p>Recipient: ${selectedRecipient}</p>`);
         recipient.insertAdjacentHTML("beforeEnd", `<p>Amount: ${amount.value} ${ticker}</p>`);
         const secondBlock = document.querySelector(".second-block");
         const transferResults = document.querySelector(".currency-transfer-results");

@@ -45,7 +45,7 @@
     width: 420px;
     height: 360px;
     margin: 48px auto;
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 25px;
   }
 
@@ -54,11 +54,6 @@
     font-size: 24px;
   }
 
-  .currency-transfer-elements {
-    margin-top: 16px;
-    height: 320px;
-    position: relative;
-  }
 
   .balance {
     opacity: 0.7;
@@ -94,7 +89,7 @@
     width: 420px;
     height: 420px;
     margin: 48px auto;
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 25px;
   }
 
@@ -319,7 +314,7 @@
     width: 420px;
     height: 240px;
     margin: 48px auto;
-    border: 1px solid white;
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 25px;
     padding: 24px 0 48px 0;
   }
