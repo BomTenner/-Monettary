@@ -75,6 +75,22 @@
     background-color: #5C6494;
     width: 136px;
     padding: 12px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #495079;
+    }
+  }
+
+
+  .copy-button {
+    color: white;
+    // font-weight: bold;
+    background-color: #5C6494;
+    width: 104px;
+    padding: 2px;
+    border: 1px solid rgba(255,255,255,0.5);
     border-radius: 10px;
 
     &:hover {
@@ -93,6 +109,14 @@
   .currency-transfer-new {
     width: 420px;
     height: 420px;
+    margin: 48px auto;
+    border: 1px solid white;
+    border-radius: 25px;
+  }
+
+  .currency-transfer-receive {
+    width: 420px;
+    height: 320px;
     margin: 48px auto;
     border: 1px solid white;
     border-radius: 25px;
@@ -322,6 +346,14 @@
     border: 1px solid white;
     border-radius: 25px;
     padding: 24px 0 48px 0;
+  }
+
+  .each-address-sequence {
+    font-size: 12px;
+    opacity: 0.7;
+    text-shadow: 1px 1px 5px black;
+    margin-top: -10px;
+    margin-bottom: 32px;
   }
 
 }

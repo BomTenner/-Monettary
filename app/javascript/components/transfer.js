@@ -3,6 +3,7 @@
 const initTransfer = () => {
   const clickableRows = document.querySelectorAll('.clickable-row');
   const sendButton = document.querySelector(".send-button");
+  const receiveButton = document.querySelector(".receive-button");
   const nextButton = document.querySelector(".next-button");
   const buttonSend = document.querySelector(".btn-send");
   const receiverAddress = document.getElementById("transaction_receiving_address_id");
@@ -14,6 +15,7 @@ const initTransfer = () => {
   const networkFeeOptions = document.querySelector(".network-fee-options");
   const feeOptions = document.querySelectorAll(".fee-options");
   const btnSendTransfer = document.querySelector(".btn-send-transfer");
+  const walletReceiveSelect = document.querySelector("#transaction_receiving_address_id");
 
 
 
@@ -37,6 +39,16 @@ const initTransfer = () => {
     });
   }
 
+  if (receiveButton) {
+    receiveButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const mainBlock = document.querySelector(".main-block");
+      const currencyReceive = document.querySelector(".currency-transfer-receive");
+      mainBlock.classList.add("d-none");
+      currencyReceive.classList.remove("d-none");
+    })
+  }
+
   if (nextButton) {
     const message = document.querySelector(".not-valid-fb")
     const balanceValue = document.getElementById("balance-value")
@@ -53,8 +65,8 @@ const initTransfer = () => {
         amount.classList.remove("not-valid")
         nextButton.classList.remove("disabled-link")
       }
-
     });
+
 
 
 
@@ -179,6 +191,23 @@ const initTransfer = () => {
       currentBalance.innerText = myBalance;
       console.log(myBalance)
       currentBalance.parentElement.dataset.value = myBalance
+    })
+  }
+
+  if (walletReceiveSelect) {
+    walletReceiveSelect.addEventListener("change", (event) => {
+      const addressSequence = document.querySelector(".address-sequence");
+      addressSequence.innerHTML = "";
+      addressSequence.insertAdjacentHTML("beforeEnd", `<p>Your address is:</p>`, );
+      addressSequence.insertAdjacentHTML("beforeEnd", `<p class="each-address-sequence">${walletReceiveSelect.value}</p>`);
+      addressSequence.insertAdjacentHTML("beforeEnd", `<div><a class="btn copy-button">Copy</a></div>`);
+
+      const copyButton = document.querySelector(".copy-button");
+      copyButton.addEventListener("click", (event) => {
+        const eachAddressSequence = document.querySelector(".each-address-sequence");
+        eachAddressSequence.select();
+        document.execCommand("copy");
+      })
     })
   }
 
