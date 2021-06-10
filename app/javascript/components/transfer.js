@@ -147,25 +147,14 @@ const initTransfer = () => {
     const message = document.querySelector(".non-valid-fb");
 
     buttonSend.addEventListener("click", (event) => {
-      event.preventDefault();
+      // event.preventDefault();
       message.innerHTML = '';
       let errorMessage = "";
-      feeOptions.forEach(option => {
-        if (!option.classList.contains("selected")) {
-          option.classList.add("invalid-choice");
-          let currentErrorMessage = '<p>Please select an option</p>';
-          if (!errorMessage.includes(currentErrorMessage) ) {
-            errorMessage += currentErrorMessage;
-            message.insertAdjacentHTML("beforeEnd", errorMessage);
-          }
-        } else {
-          option.classList.remove("invalid-choice");
-          const thirdBlock = document.querySelector(".third-block");
-          const transactionsCompleted = document.querySelector(".transaction-completed");
-          thirdBlock.classList.add("d-none");
-          transactionsCompleted.classList.remove("d-none");
-        };
-      });
+      const thirdBlock = document.querySelector(".third-block");
+      const transactionsCompleted = document.querySelector(".transaction-completed");
+      thirdBlock.classList.add("d-none");
+      transactionsCompleted.classList.remove("d-none");
+
     });
   }
 
