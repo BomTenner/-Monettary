@@ -104,6 +104,7 @@ const initMoveProcessing = () => {
   const processingAssetInfo = document.querySelector('.processing-asset-info');
   const image = document.getElementById('currency-logo');
   if (processingPage) {
+    window.setTimeout(() => { confirmation(); }, 6000);
     const info = localStorage.getItem("processInfo");
     const exchangeName = document.querySelector('.exchange-name');
     const name = localStorage.getItem('exchangeName');
@@ -111,7 +112,6 @@ const initMoveProcessing = () => {
     image.src = exchangeLogo;
     exchangeName.innerHTML = `${name}`;
     processingAssetInfo.innerHTML = info;
-    window.setTimeout(() => { confirmation(); }, 6000);
   }
 }
 
