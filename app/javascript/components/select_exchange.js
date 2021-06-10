@@ -17,7 +17,9 @@ const initClickSelect = () => {
   if (button1) {
     button1.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      localStorage.setItem("exchangeName", "uniswap");
+      const imageLogo = event.target.dataset.image;
+      localStorage.setItem("exchangeLogo", imageLogo);
+      localStorage.setItem("exchangeName", "Uniswap");
       button1.classList.toggle('color-change');
       button2.classList.remove('color-change');
       button3.classList.remove('color-change');
@@ -31,7 +33,9 @@ const initClickSelect = () => {
      });
      button2.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      localStorage.setItem("exchangeName", "inch");
+      const imageLogo = event.target.dataset.image;
+      localStorage.setItem("exchangeLogo", imageLogo);
+      localStorage.setItem("exchangeName", "1inch");
       button1.classList.remove('color-change');
       button2.classList.toggle('color-change');
       button3.classList.remove('color-change');
@@ -44,7 +48,9 @@ const initClickSelect = () => {
      });
      button3.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      localStorage.setItem("exchangeName", "kyber");
+      const imageLogo = event.target.dataset.image;
+      localStorage.setItem("exchangeLogo", imageLogo);
+      localStorage.setItem("exchangeName", "Kyber");
       button1.classList.remove('color-change');
       button2.classList.remove('color-change');
       button3.classList.toggle('color-change');
@@ -87,9 +93,6 @@ const initClickSelect = () => {
 const confirmation = () => {
   const processingPage = document.querySelector('.container-exchange-processing');
   const lastPage = document.querySelector('.container-exchange-confirmation');
-  const exchangeImage = document.querySelector('.exchange-name');
-  const name = localStorage.getItem('exchangeName');
-  exchangeImage.innerHTML = name;
   processingPage.classList.add('d-none');
   lastPage.classList.remove('d-none');
 };
@@ -99,9 +102,15 @@ const initMoveProcessing = () => {
   const processingPage = document.querySelector('.container-exchange-processing');
   const lastPage = document.querySelector('.container-exchange-confirmation');
   const processingAssetInfo = document.querySelector('.processing-asset-info');
+  const image = document.getElementById('currency-logo');
   if (processingPage) {
     window.setTimeout(() => { confirmation(); }, 6000);
     const info = localStorage.getItem("processInfo");
+    const exchangeName = document.querySelector('.exchange-name');
+    const name = localStorage.getItem('exchangeName');
+    const exchangeLogo = localStorage.getItem('exchangeLogo')
+    image.src = exchangeLogo;
+    exchangeName.innerHTML = `${name}`;
     processingAssetInfo.innerHTML = info;
   }
 }
