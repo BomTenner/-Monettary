@@ -58,7 +58,7 @@ const initScanExchanges = () => {
     container.classList.add("d-none");
     scanning.classList.remove("d-none");
     scanning.classList.add("joker");
-    window.setTimeout(() => { test(); }, 2000);
+    window.setTimeout(() => { test(); }, 6000);
   });
 }
 };

@@ -8,7 +8,7 @@ const initClickSelect = () => {
   const inch = document.querySelector('.inch-logo');
   const kyber = document.querySelector('.kyber-logo');
   // Change image
-  const image = document.getElementById('currency-logo');
+  // const image = document.getElementById('currency-logo');
   const exchangeRateSummary = document.querySelector('.exchange-rate-summary');
   const feeSummary = document.querySelector('.fee-summary');
   var fee = ""
@@ -17,8 +17,8 @@ const initClickSelect = () => {
   if (button1) {
     button1.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      const imageLogo = event.target.dataset.image;
-      localStorage.setItem("exchangeLogo", imageLogo);
+      // const imageLogo = event.target.dataset.image;
+      // localStorage.setItem("exchangeLogo", imageLogo);
       localStorage.setItem("exchangeName", "Uniswap");
       button1.classList.toggle('color-change');
       button2.classList.remove('color-change');
@@ -33,8 +33,8 @@ const initClickSelect = () => {
      });
      button2.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      const imageLogo = event.target.dataset.image;
-      localStorage.setItem("exchangeLogo", imageLogo);
+      // const imageLogo = event.target.dataset.image;
+      // localStorage.setItem("exchangeLogo", imageLogo);
       localStorage.setItem("exchangeName", "1inch");
       button1.classList.remove('color-change');
       button2.classList.toggle('color-change');
@@ -48,8 +48,8 @@ const initClickSelect = () => {
      });
      button3.addEventListener("click", (event) => {
       // image.src = event.target.dataset.image;
-      const imageLogo = event.target.dataset.image;
-      localStorage.setItem("exchangeLogo", imageLogo);
+      // const imageLogo = event.target.dataset.image;
+      // localStorage.setItem("exchangeLogo", imageLogo);
       localStorage.setItem("exchangeName", "Kyber");
       button1.classList.remove('color-change');
       button2.classList.remove('color-change');
@@ -102,14 +102,14 @@ const initMoveProcessing = () => {
   const processingPage = document.querySelector('.container-exchange-processing');
   const lastPage = document.querySelector('.container-exchange-confirmation');
   const processingAssetInfo = document.querySelector('.processing-asset-info');
-  const image = document.getElementById('currency-logo');
+  // const image = document.getElementById('currency-logo');
   if (processingPage) {
     window.setTimeout(() => { confirmation(); }, 6000);
     const info = localStorage.getItem("processInfo");
     const exchangeName = document.querySelector('.exchange-name');
     const name = localStorage.getItem('exchangeName');
-    const exchangeLogo = localStorage.getItem('exchangeLogo')
-    image.src = exchangeLogo;
+    // const exchangeLogo = localStorage.getItem('exchangeLogo')
+    // image.src = exchangeLogo;
     exchangeName.innerHTML = `${name}`;
     processingAssetInfo.innerHTML = info;
   }
