@@ -11,24 +11,9 @@
       </div>
       <div class="send-receive d-flex justify-content-between">
         <div><a class="btn btn-transfer send-button">Send</a></div>
-        <div class="btn btn-transfer receive-button">Receive</div>
+        <div class="btn btn-transfer">Receive</div>
       </div>
       <p class="history"><small>View History</small></p>
-    </div>
-  </div>
-
-  <div class="currency-transfer-receive receive-block d-none">
-    <div class="currency-transfer-elements">
-      <div>
-        <div class="currency-choice"> Receive <%= @asset.name %> (<%= @asset.ticker %>) </div>
-      </div>
-      <div class="transfer-form">
-        <%= simple_form_for [@address, @transaction] do |f| %>
-          <%= f.input :receiving_address_id, collection: @asset.individual_balances_for_user(current_user), label: "Select wallet", label_html: { style: 'margin-bottom: 2px; font-size: 12px' } %>
-        <% end %>
-      </div>
-      <div class="address-sequence">
-      </div>
     </div>
   </div>
 
