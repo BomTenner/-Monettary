@@ -63,7 +63,7 @@ class TransactionsController < ApplicationController
     @unique_assets = @assets_ids.uniq # [17, 18, 19]
 
     @unique_assets.each do |uniq_asset|
-      @addresses_subset = Address.where(asset_id: uniq_asset)
+      @addresses_subset = Address.where(asset_id: uniq_asset, user_id: current_user)
       @balance = []
       @addresses_subset.each do |address|
         @balance << address.balance
